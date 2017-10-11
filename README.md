@@ -1,17 +1,17 @@
 # noSignal
 
-* [Bevezetés](README.md#intro)
-* [Elemzés](README.md#section)
-  * [Funkciók](README.md#features)
-  * [Szerepkörök, jogosultságok](README.md#roles)
-* [Megoldási terv](README.md#plan)
+* [Bevezetés](README.md#bevezetés)
+* [Elemzés](README.md#elemzés)
+  * [Funkciók](README.md#funkciók)
+  * [Szerepkörök, jogosultságok](README.md#szerepkörök-jogosultságok)
+* [Megoldási terv](README.md#megoldási-terv)
   * [Modell](README.md#modell)
   * [Controller](README.md#controller)
   * [View](README.md#view)
-  * [Használt függőségek](README.md#dependencies)
-  * [Használt eszközök](README.md#devTools)
-  * [Use-case diagram](README.md#use-case)
-  * [Adatbázisterv](README.md#database)
+  * [Használt függőségek](README.md#használt-függőségek)
+  * [Használt eszközök](README.md#használt-eszközök)
+  * [Use-case diagram](README.md#use-case-diagram)
+  * [Adatbázisterv](README.md#adatbázisterv)
 
 ## [Bevezetés](#intro)
 A NoSignal egy olyan online felület, ami informatikai témájú bejegyzések, kérdések, hivatkozások és egyéb tartalmak megosztását teszi lehetővé. A regisztrált felhasználók megoszthatják saját gondolataikat, kérdéseiket a nagyközönséggel, hozzászólhatnak más bejegyzésekhez és „kedvelhetik” is azokat.
