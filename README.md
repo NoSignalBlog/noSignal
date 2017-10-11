@@ -62,7 +62,7 @@ A controller felelős a HTTP kérések kezeléséért, valamint a klienssel val�
 
 ### [View](#view)
 
-A megjelenítéshez szükséges elemek. A frontend oldalak megvalósításához Angular-t valamint HTML 5 és CSS 3 nyelveket alkalmazunk.
+A megjelenítéshez szükséges elemek. A frontend oldalak megvalósításához TypeScript-et, Angular-t valamint HTML 5 és CSS 3 nyelveket alkalmazunk.
 
 ### [Használt függőségek](#dependencies)
 * **JPA**: az adatok perzisztálásáért, és az adatok eléréséért felelős keretrendszer.
@@ -74,10 +74,13 @@ A megjelenítéshez szükséges elemek. A frontend oldalak megvalósításához 
 * **DevTools**: egyéb spring-es fejlesztési eszközök.
 
 ### [Használt eszközök](#devTools)
-**Build tool**: Appache Maven 3.5.0 
+**Build tool**: Appache Maven 3.5.0 (back-end), npm (front-end)
 **Fejlesztői környezet**: IntelliJ IDEA Ultimate 2017.2.5
 
 ### [Use-case diagram](#use-case)
 
+![Use-case](use-case.PNG)
 
 ### [Adatbázisterv](#database)
+
+![ER-diagram](erdplus-diagram.png)
