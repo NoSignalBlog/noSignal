@@ -74,7 +74,7 @@ A megjelenítéshez szükséges elemek. A frontend oldalak megvalósításához 
 * **DevTools**: egyéb spring-es fejlesztési eszközök.
 
 ### [Használt eszközök](#devTools)
-**Build tool**: Appache Maven 3.5.0 (back-end), npm (front-end)
+**Build tool**: Appache Maven 3.5.0 (back-end), npm (front-end) <br>
 **Fejlesztői környezet**: IntelliJ IDEA Ultimate 2017.2.5
 
 ### [Use-case diagram](#use-case)
