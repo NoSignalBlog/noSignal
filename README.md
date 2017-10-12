@@ -12,6 +12,7 @@
   * [Használt eszközök](README.md#használt-eszközök)
   * [Use-case diagram](README.md#use-case-diagram)
   * [Adatbázisterv](README.md#adatbázisterv)
+* [Fejlesztők](README.md#fejlesztők)
 
 ## [Bevezetés](#intro)
 A NoSignal egy olyan online felület, ami informatikai témájú bejegyzések, kérdések, hivatkozások és egyéb tartalmak megosztását teszi lehetővé. A regisztrált felhasználók megoszthatják saját gondolataikat, kérdéseiket a nagyközönséggel, hozzászólhatnak más bejegyzésekhez és „kedvelhetik” is azokat.
@@ -84,3 +85,7 @@ A megjelenítéshez szükséges elemek. A frontend oldalak megvalósításához 
 ### [Adatbázisterv](#database)
 
 ![ER-diagram](erdplus-diagram.png)
+
+## Fejlesztők
+
+**[Gecse Viktória](https://github.com/viktoriagecse)**, **[Vadász Péter](https://github.com/pevad95)**, ELTE-IK
