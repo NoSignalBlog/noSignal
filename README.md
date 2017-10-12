@@ -86,6 +86,6 @@ A megjelenítéshez szükséges elemek. A frontend oldalak megvalósításához 
 
 ![ER-diagram](erdplus-diagram.png)
 
-## Fejlesztők
+## [Fejlesztők](#fejlesztők)
 
 **[Gecse Viktória](https://github.com/viktoriagecse)**, **[Vadász Péter](https://github.com/pevad95)**, ELTE-IK
