@@ -12,6 +12,7 @@
   * [Használt eszközök](README.md#használt-eszközök)
   * [Use-case diagram](README.md#use-case-diagram)
   * [Adatbázisterv](README.md#adatbázisterv)
+  * [Végpontok](README.md#végpontok)
 * [Fejlesztők](README.md#fejlesztők)
 
 ## [Bevezetés](#intro)
@@ -85,6 +86,19 @@ A megjelenítéshez szükséges elemek. A frontend oldalak megvalósításához 
 ### [Adatbázisterv](#database)
 
 ![ER-diagram](erdplus-diagram.png)
+
+### [Végpontok](#végpontok)
+
+* **usr/login**: (User, Admin) POST -> bejelentkezés
+* **usr/register**: (GUEST) POST -> regisztráció
+* **usr/data**: (User, Admin) POST -> személyes adatok meváltoztatása
+* **usr/page?id**: (Admin, User) GET -> felhasználói oldal lekérése
+* **posts**: (Guest) GET -> a nyilvános bejegyzések megtekintése, (User, Admin) GET -> az összes bejegyzés megtekintése
+* **posts/new**: (User, Admin) POST -> új bejegyzés írrása
+* **posts/edit**: (User, Admin) POST -> bejegyzés szerkesztése, törlése
+* **posts/comment**: (User, Admin) POST -> hozzászólás írása, módosítása
+* **posts/like**: (User, Admin) POST -> bejegyzés kedvelése
+* **admin/dashboard**: (Admin) GET -> admin vezérlőpult, adatok lekérése, (Admin) POST -> adatok megváltoztatása
 
 ## [Fejlesztők](#fejlesztők)
 
