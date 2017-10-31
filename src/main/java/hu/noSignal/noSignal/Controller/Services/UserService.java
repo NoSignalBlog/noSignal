@@ -50,4 +50,24 @@ public class UserService {
         }
         this.user = null;
     }
+
+    public User update(long id, User user) throws UserException {
+        if (this.user == null) {
+            throw new UserException();
+        }
+
+        User userToUpdate = userRepository.findOne(id);
+        if (userToUpdate != null) {
+            userToUpdate.setEmail(user.getEmail());
+            userToUpdate.setFirstname(user.getFirstname());
+            userToUpdate.setLastname(user.getLastname());
+            userToUpdate.setPassword(user.getPassword());
+            userToUpdate.setProfilepicture(user.getProfilepicture());
+            userRepository.save(userToUpdate);
+            this.user = userToUpdate;
+            return userToUpdate;
+        } else {
+            throw new UserException();
+        }
+    }
 }
