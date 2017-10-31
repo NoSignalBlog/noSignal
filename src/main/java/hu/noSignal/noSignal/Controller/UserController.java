@@ -23,4 +23,14 @@ public class UserController {
             return ResponseEntity.badRequest().build();
         }
     }
+
+    @PostMapping("/login")
+    private ResponseEntity<User> login(@RequestBody User user) {
+        try {
+            User loggedInUser = userService.login(user);
+            return ResponseEntity.ok(loggedInUser);
+        }catch (UserException e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
 }
