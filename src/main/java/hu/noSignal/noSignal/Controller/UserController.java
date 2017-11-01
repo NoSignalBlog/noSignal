@@ -33,7 +33,7 @@ public class UserController {
         try {
             User loggedInUser = userService.login(user);
             return ResponseEntity.ok(loggedInUser);
-        }catch (UserException e) {
+        } catch (UserException e) {
             return ResponseEntity.badRequest().build();
         }
     }
@@ -43,6 +43,15 @@ public class UserController {
         try {
             userService.logout();
             return ResponseEntity.ok(LOG_OUT);
+        } catch (UserException e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
+
+    @PutMapping("/data/{id}")
+    private ResponseEntity<User> update(@PathVariable long id, @RequestBody User user) {
+        try {
+            return ResponseEntity.ok(userService.update(id, user));
         } catch (UserException e) {
             return ResponseEntity.badRequest().build();
         }
