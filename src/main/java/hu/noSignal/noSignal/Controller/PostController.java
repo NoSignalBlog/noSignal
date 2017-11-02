@@ -3,6 +3,7 @@ package hu.noSignal.noSignal.Controller;
 import hu.noSignal.noSignal.Controller.Services.Annotations.Role;
 import hu.noSignal.noSignal.Controller.Services.PostService;
 import hu.noSignal.noSignal.Controller.Services.UserService;
+import hu.noSignal.noSignal.Modell.Exceptions.PostException;
 import hu.noSignal.noSignal.Modell.Exceptions.UserException;
 import hu.noSignal.noSignal.Modell.Post;
 import hu.noSignal.noSignal.Modell.User;
@@ -44,4 +45,16 @@ public class PostController {
             return ResponseEntity.ok(postService.listPublic());
         }
     }
+
+    @Role({USER, ADMIN})
+    @PutMapping("/like/{id}")
+    private ResponseEntity<Post> like(@PathVariable long id, @RequestBody Post post)  {
+        try {
+            return ResponseEntity.ok(postService.likePost(id,post));
+        } catch (PostException e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
+
+
 }
