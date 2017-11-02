@@ -23,6 +23,10 @@ public class UserService {
 
     private User user;
 
+    public boolean isLoggedIn() {
+        return this.user != null;
+    }
+
     public User register(User user) throws UserException {
         user.setRole(USER);
         if (userRepository.findByUsername(user.getUsername()).isPresent()) {
