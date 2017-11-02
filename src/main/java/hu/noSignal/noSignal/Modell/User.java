@@ -20,10 +20,10 @@ public class User extends BaseEntity {
     private String username;
 
     @Column (nullable = false)
-    private String lastName;
+    private String lastname;
 
     @Column(nullable = false)
-    private String firstName;
+    private String firstname;
 
     @Column(nullable = false, unique = true)
     private String email;
@@ -36,10 +36,10 @@ public class User extends BaseEntity {
     private Role role;
 
     @Column(nullable = false)
-    private Timestamp registerDate;
+    private Timestamp registerdate;
 
     @Column
-    private String profilePicture;
+    private String profilepicture;
 
     public enum Role {
         GUEST, USER, ADMIN
