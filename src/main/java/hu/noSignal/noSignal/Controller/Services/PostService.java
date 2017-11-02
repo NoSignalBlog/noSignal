@@ -47,11 +47,11 @@ public class PostService {
         if ( postToLike != null ) {
             int likes = postToLike.getLikes();
             postToLike.setLikes(++likes);
-            postRepository.save(post);
+            postRepository.save(postToLike);
             return postToLike;
         } else {
             throw new PostException();
         }
-
     }
+
 }
