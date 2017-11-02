@@ -17,7 +17,7 @@ import java.util.Set;
 @Table(name = "POSTS")
 public class Post extends BaseEntity {
 
-    @JoinColumn ()
+    @JoinColumn (name = "username", referencedColumnName = "username")
     @ManyToOne(targetEntity = User.class)
     private User user;
 

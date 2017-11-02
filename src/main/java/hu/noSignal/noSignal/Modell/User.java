@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.List;
 
 @Entity
 @Data
@@ -40,6 +41,10 @@ public class User extends BaseEntity {
 
     @Column
     private String profilepicture;
+
+    @JoinColumn
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, targetEntity = Post.class)
+    private List<Post> posts;
 
     public enum Role {
         GUEST, USER, ADMIN

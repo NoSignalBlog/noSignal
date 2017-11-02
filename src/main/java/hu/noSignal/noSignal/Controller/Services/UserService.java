@@ -23,6 +23,10 @@ public class UserService {
 
     private User user;
 
+    public Iterable<User> listAll() {
+        return userRepository.findAll();
+    }
+
     public boolean isLoggedIn() {
         return this.user != null;
     }
@@ -67,6 +71,7 @@ public class UserService {
             userToUpdate.setLastname(user.getLastname());
             userToUpdate.setPassword(user.getPassword());
             userToUpdate.setProfilepicture(user.getProfilepicture());
+            userToUpdate.setPosts(user.getPosts());
             userRepository.save(userToUpdate);
             this.user = userToUpdate;
             return userToUpdate;
