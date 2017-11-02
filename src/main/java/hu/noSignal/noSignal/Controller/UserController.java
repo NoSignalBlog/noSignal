@@ -1,5 +1,6 @@
 package hu.noSignal.noSignal.Controller;
 
+import hu.noSignal.noSignal.Controller.Services.Annotations.Role;
 import hu.noSignal.noSignal.Controller.Services.UserService;
 import hu.noSignal.noSignal.Modell.Exceptions.UserException;
 import hu.noSignal.noSignal.Modell.User;
@@ -7,8 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
+import static hu.noSignal.noSignal.Modell.User.Role.ADMIN;
 import static hu.noSignal.noSignal.Modell.User.Role.USER;
 
 @RestController
@@ -45,6 +45,7 @@ public class UserController {
         }
     }
 
+    @Role({USER, ADMIN})
     @PostMapping("/logout")
     private ResponseEntity<String> logout(@RequestBody User user) {
         try {
@@ -55,6 +56,7 @@ public class UserController {
         }
     }
 
+    @Role({USER, ADMIN})
     @PutMapping("/data/{id}")
     private ResponseEntity<User> update(@PathVariable long id, @RequestBody User user) {
         try {
