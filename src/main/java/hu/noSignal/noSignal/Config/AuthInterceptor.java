@@ -16,6 +16,9 @@ import java.util.List;
 
 @Component
 public class AuthInterceptor extends HandlerInterceptorAdapter {
+
+    private static final int ERROR_STATUS = 401;
+
     @Autowired
     private UserService userService;
 
@@ -24,15 +27,16 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
         List<User.Role> routeRoles = getRoles((HandlerMethod) handler);
         User user = userService.getUser();
 
+        if (userService.isLoggedIn() && routeRoles.contains(user.getRole())) {
+            return true;
+        }
+
         //when there are no restrictions, we let the user through
         if (routeRoles.isEmpty() || routeRoles.contains(User.Role.GUEST)) {
             return true;
         }
-        //check role
-        if (userService.isLoggedIn() && routeRoles.contains(user.getRole())) {
-            return true;
-        }
-        response.setStatus(401);
+
+        response.setStatus(ERROR_STATUS);
         return false;
     }
 
