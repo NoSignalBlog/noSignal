@@ -70,4 +70,9 @@ public class UserService {
             throw new UserException();
         }
     }
+
+
+    public boolean isLoggedIn() {
+        return user != null;
+    }
 }
