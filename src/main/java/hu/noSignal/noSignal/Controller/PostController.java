@@ -1,12 +1,17 @@
 package hu.noSignal.noSignal.Controller;
 
+import hu.noSignal.noSignal.Controller.Services.Annotations.Role;
 import hu.noSignal.noSignal.Controller.Services.PostService;
 import hu.noSignal.noSignal.Controller.Services.UserService;
 import hu.noSignal.noSignal.Modell.Exceptions.UserException;
 import hu.noSignal.noSignal.Modell.Post;
+import hu.noSignal.noSignal.Modell.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import static hu.noSignal.noSignal.Modell.User.Role.ADMIN;
+import static hu.noSignal.noSignal.Modell.User.Role.USER;
 
 @RestController
 @RequestMapping("/posts")
@@ -18,6 +23,7 @@ public class PostController {
     @Autowired
     private UserService userService;
 
+    @Role({ADMIN, USER})
     @PostMapping("/new")
     private ResponseEntity<Post> create(@RequestBody Post post) {
         try {
