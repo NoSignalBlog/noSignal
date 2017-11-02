@@ -26,7 +26,21 @@ public class UserService {
             throw new UserException();
         }
         this.user = userRepository.save(user);
-
         return user;
+    }
+
+    public User login(User user) throws UserException {
+        if ( isValid(user) ) {
+            return this.user = userRepository.findByUsername(user.getUsername()).get();
+        }
+        throw new UserException();
+    }
+
+    private boolean isValid(User user) {
+        return userRepository.findByUsernameAndPassword(user.getUsername(), user.getPassword()).isPresent();
+    }
+
+    public boolean isLoggedIn() {
+        return user != null;
     }
 }
