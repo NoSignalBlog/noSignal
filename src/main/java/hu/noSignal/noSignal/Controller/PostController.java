@@ -1,12 +1,17 @@
 package hu.noSignal.noSignal.Controller;
 
+import hu.noSignal.noSignal.Controller.Services.Annotations.Role;
 import hu.noSignal.noSignal.Controller.Services.PostService;
 import hu.noSignal.noSignal.Controller.Services.UserService;
+import hu.noSignal.noSignal.Modell.Exceptions.PostException;
 import hu.noSignal.noSignal.Modell.Exceptions.UserException;
 import hu.noSignal.noSignal.Modell.Post;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import static hu.noSignal.noSignal.Modell.User.Role.ADMIN;
+import static hu.noSignal.noSignal.Modell.User.Role.USER;
 
 @RestController
 @RequestMapping("/posts")
@@ -38,4 +43,12 @@ public class PostController {
             return ResponseEntity.ok(postService.listPublic());
         }
     }
+
+    @Role({USER, ADMIN})
+    @PutMapping("/like")
+    private ResponseEntity<Post> like(@PathVariable long id, @RequestBody Post post)  {
+        return ResponseEntity.ok(postService.likePost(id));
+    }
+
+
 }

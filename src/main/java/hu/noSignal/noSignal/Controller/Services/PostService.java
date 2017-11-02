@@ -2,6 +2,7 @@ package hu.noSignal.noSignal.Controller.Services;
 
 import hu.noSignal.noSignal.Modell.Post;
 import hu.noSignal.noSignal.Modell.Repositories.PostRepository;
+import hu.noSignal.noSignal.Modell.User;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,5 +38,11 @@ public class PostService {
             }
         }
         return publics;
+    }
+
+    public Post likePost(long id) {
+        int likes = postRepository.findOne(id).getLikes();
+        postRepository.findOne(id).setLikes(++likes);
+        return postRepository.findOne(id);
     }
 }
