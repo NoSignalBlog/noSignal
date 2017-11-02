@@ -65,4 +65,15 @@ public class UserController {
             return ResponseEntity.badRequest().build();
         }
     }
+
+    @Role({USER, ADMIN})
+    @PostMapping("/page/{id}")
+    private ResponseEntity<User> search(@PathVariable long id, @RequestBody User user) {
+        try {
+            return ResponseEntity.ok(userService.searchUser(id, user));
+        } catch (UserException e) {
+            return ResponseEntity.badRequest().build();
+        }
+
+    }
 }

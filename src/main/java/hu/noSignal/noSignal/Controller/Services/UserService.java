@@ -79,4 +79,17 @@ public class UserService {
             throw new UserException();
         }
     }
+
+
+    public User searchUser(long id, User user) throws UserException {
+        if (this.user == null) {
+            throw new UserException();
+        }
+        User userToGet = userRepository.findOne(id);
+        if ( userToGet != null ) {
+            return userToGet;
+        } else {
+            throw new UserException();
+        }
+    }
 }
