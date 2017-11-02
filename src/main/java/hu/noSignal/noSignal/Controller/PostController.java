@@ -45,9 +45,13 @@ public class PostController {
     }
 
     @Role({USER, ADMIN})
-    @PutMapping("/like")
+    @PutMapping("/like/{id}")
     private ResponseEntity<Post> like(@PathVariable long id, @RequestBody Post post)  {
-        return ResponseEntity.ok(postService.likePost(id));
+        try {
+            return ResponseEntity.ok(postService.likePost(id,post));
+        } catch (PostException e) {
+            return ResponseEntity.badRequest().build();
+        }
     }
 
 

@@ -1,5 +1,7 @@
 package hu.noSignal.noSignal.Controller.Services;
 
+import hu.noSignal.noSignal.Modell.Exceptions.PostException;
+import hu.noSignal.noSignal.Modell.Exceptions.UserException;
 import hu.noSignal.noSignal.Modell.Post;
 import hu.noSignal.noSignal.Modell.Repositories.PostRepository;
 import hu.noSignal.noSignal.Modell.User;
@@ -40,9 +42,15 @@ public class PostService {
         return publics;
     }
 
-    public Post likePost(long id) {
-        int likes = postRepository.findOne(id).getLikes();
-        postRepository.findOne(id).setLikes(++likes);
-        return postRepository.findOne(id);
+    public Post likePost(long id, Post post) throws PostException {
+        Post postToLike = postRepository.findOne(id);
+        if ( postToLike != null ) {
+            int likes = postToLike.getLikes();
+            postToLike.setLikes(++likes);
+            return postToLike;
+        } else {
+            throw new PostException();
+        }
+
     }
 }
