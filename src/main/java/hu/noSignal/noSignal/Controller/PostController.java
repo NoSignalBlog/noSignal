@@ -6,6 +6,7 @@ import hu.noSignal.noSignal.Controller.Services.UserService;
 import hu.noSignal.noSignal.Modell.Exceptions.PostException;
 import hu.noSignal.noSignal.Modell.Exceptions.UserException;
 import hu.noSignal.noSignal.Modell.Post;
+import hu.noSignal.noSignal.Modell.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +24,7 @@ public class PostController {
     @Autowired
     private UserService userService;
 
+    @Role({ADMIN, USER})
     @PostMapping("/new")
     private ResponseEntity<Post> create(@RequestBody Post post) {
         try {
@@ -53,7 +55,7 @@ public class PostController {
             return ResponseEntity.badRequest().build();
         }
     }
-
+  
     @Role({USER, ADMIN})
     @PutMapping("/edit/{id}/{isDelete}")
     private ResponseEntity<Post> editPost(@PathVariable long id, @PathVariable boolean isDelete, @RequestBody Post post)  {
@@ -63,5 +65,4 @@ public class PostController {
             return ResponseEntity.badRequest().build();
         }
     }
-
 }

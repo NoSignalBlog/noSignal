@@ -20,6 +20,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Role({ADMIN})
     @GetMapping
     private ResponseEntity<Iterable<User>> listAll() {
         return ResponseEntity.ok(userService.listAll());

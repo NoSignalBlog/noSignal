@@ -53,7 +53,6 @@ public class PostService {
             throw new PostException();
         }
     }
-
     public Post editPost(boolean isDelete, long id, Post post) throws PostException {
         Post postToEdit = postRepository.findOne(id);
         if ( postToEdit != null ) {
@@ -72,7 +71,4 @@ public class PostService {
             throw new PostException();
         }
     }
-
-
-
 }
