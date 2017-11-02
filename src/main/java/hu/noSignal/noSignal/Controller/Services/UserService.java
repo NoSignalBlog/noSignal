@@ -23,6 +23,14 @@ public class UserService {
 
     private User user;
 
+    public Iterable<User> listAll() {
+        return userRepository.findAll();
+    }
+
+    public boolean isLoggedIn() {
+        return this.user != null;
+    }
+
     public User register(User user) throws UserException {
         user.setRole(USER);
         if (userRepository.findByUsername(user.getUsername()).isPresent()) {
@@ -63,16 +71,12 @@ public class UserService {
             userToUpdate.setLastname(user.getLastname());
             userToUpdate.setPassword(user.getPassword());
             userToUpdate.setProfilepicture(user.getProfilepicture());
+            userToUpdate.setPosts(user.getPosts());
             userRepository.save(userToUpdate);
             this.user = userToUpdate;
             return userToUpdate;
         } else {
             throw new UserException();
         }
-    }
-
-
-    public boolean isLoggedIn() {
-        return user != null;
     }
 }

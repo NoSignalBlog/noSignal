@@ -1,6 +1,5 @@
 package hu.noSignal.noSignal.Modell;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -9,34 +8,37 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.sql.Timestamp;
 
+
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @Table(name = "POSTS")
-public class Post extends BaseEntity{
+public class Post extends BaseEntity {
 
-    @Column(nullable = false) //TODO: let it be unique?
-    private long user_id;
+    @JoinColumn (name = "username", referencedColumnName = "username")
+    @ManyToOne(targetEntity = User.class)
+    private User user;
 
-    @Enumerated(EnumType.STRING)
-    @Column (nullable = false)
-    private Visibility visibility;
+    @Column(nullable = false)
+    private String title;
 
-    @Column (nullable = false)
-    private int num_of_likes;
+    @Column(nullable = false)
+    private boolean visibility;
 
-    @Column (nullable = false)
+    @Column(nullable = false)
+    private int likes;
+
+    @Column(nullable = false)
     private String text;
 
     @Column(nullable = false)
-    private Timestamp post_date;
+    private Timestamp date;
 
-    @Column(nullable = false)
-    private long comment_id;
+    @Column
+    private String videos;
 
-    public enum Visibility {
-        PUBLIC, PRIVATE
-    }
+    @Column
+    private String links;
 }

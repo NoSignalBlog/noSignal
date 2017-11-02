@@ -20,6 +20,11 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @GetMapping
+    private ResponseEntity<Iterable<User>> listAll() {
+        return ResponseEntity.ok(userService.listAll());
+    }
+
     @PostMapping("/register")
     private ResponseEntity<User> register(@RequestBody User user) {
         try {
