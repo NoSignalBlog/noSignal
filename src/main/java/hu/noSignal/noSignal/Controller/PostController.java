@@ -57,10 +57,10 @@ public class PostController {
     }
   
     @Role({USER, ADMIN})
-    @PutMapping("/edit/{id}/{isDelete}")
-    private ResponseEntity<Post> editPost(@PathVariable long id, @PathVariable boolean isDelete, @RequestBody Post post)  {
+    @PutMapping("/edit/{id}")
+    private ResponseEntity<Post> editPost(@PathVariable long id, @RequestBody Post post)  {
         try {
-            return ResponseEntity.ok(postService.editPost(isDelete,id,post));
+            return ResponseEntity.ok(postService.editPost(id,post));
         } catch (PostException e) {
             return ResponseEntity.badRequest().build();
         }
