@@ -4,6 +4,7 @@ import hu.noSignal.noSignal.Modell.Exceptions.PostException;
 import hu.noSignal.noSignal.Modell.Exceptions.UserException;
 import hu.noSignal.noSignal.Modell.Post;
 import hu.noSignal.noSignal.Modell.Repositories.PostRepository;
+import hu.noSignal.noSignal.Modell.Repositories.UserRepository;
 import hu.noSignal.noSignal.Modell.User;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,13 @@ public class PostService {
     @Autowired
     private PostRepository postRepository;
 
-    public Post newPost(Post post) {
+    @Autowired
+    private UserRepository userRepository;
+
+    public Post newPost(Post post) throws PostException {
+        if (userRepository.findOne(post.getUserid()) == null) {
+            throw new PostException();
+        }
         postRepository.save(post);
         return post;
     }

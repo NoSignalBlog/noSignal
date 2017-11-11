@@ -28,11 +28,12 @@ public class PostController {
     @PostMapping("/new")
     private ResponseEntity<Post> create(@RequestBody Post post) {
         try {
-            userService.getUser().getPosts().add(post);
-            userService.update(userService.getUser().getId(), userService.getUser());
-            post.setUser(userService.getUser());
+            // userService.getUser().getPosts().add(post);
+            // userService.update(userService.getUser().getId(), userService.getUser());
+           // post.setUser(userService.getUser());
+            post.setUserid(userService.getUser().getId());
             return ResponseEntity.ok(postService.newPost(post));
-        } catch (UserException e) {
+        } catch (PostException e) {
             return ResponseEntity.badRequest().build();
         }
     }
