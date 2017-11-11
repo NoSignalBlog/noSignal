@@ -55,6 +55,14 @@ public class PostController {
             return ResponseEntity.badRequest().build();
         }
     }
-
-
+  
+    @Role({USER, ADMIN})
+    @PutMapping("/edit/{id}")
+    private ResponseEntity<Post> editPost(@PathVariable long id, @RequestBody Post post)  {
+        try {
+            return ResponseEntity.ok(postService.editPost(id,post));
+        } catch (PostException e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
 }

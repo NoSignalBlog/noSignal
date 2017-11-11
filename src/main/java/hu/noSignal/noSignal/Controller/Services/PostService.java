@@ -53,5 +53,18 @@ public class PostService {
             throw new PostException();
         }
     }
-
+    public Post editPost(long id, Post post) throws PostException {
+        Post postToEdit = postRepository.findOne(id);
+        if ( postToEdit != null ) {
+            postToEdit.setTitle(post.getTitle());
+            postToEdit.setText(post.getText());
+            postToEdit.setDate(post.getDate());
+            postToEdit.setVideos(post.getVideos());
+            postToEdit.setLinks(post.getLinks());
+            postRepository.save(postToEdit);
+            return postToEdit;
+        } else {
+            throw new PostException();
+        }
+    }
 }
