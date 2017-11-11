@@ -25,6 +25,9 @@ public class Post extends BaseEntity {
     private String title;
 
     @Column(nullable = false)
+    private long userid;
+
+    @Column(nullable = false)
     private boolean visibility;
 
     @Column(nullable = false)
