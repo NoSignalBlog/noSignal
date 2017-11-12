@@ -85,7 +85,7 @@ public class PostController {
     }
 
     @Role({USER, ADMIN})
-    @PutMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     private ResponseEntity<Post> deletePost(@PathVariable long id, @RequestBody Post post)  {
         try {
             post.setUserid(userService.getUser().getId());
