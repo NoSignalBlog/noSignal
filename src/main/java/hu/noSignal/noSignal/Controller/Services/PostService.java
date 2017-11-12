@@ -74,4 +74,17 @@ public class PostService {
             throw new PostException();
         }
     }
+
+    public Post deletePost(long id, Post post) throws PostException {
+        Post postToDelete = postRepository.findOne(id);
+        if ( postToDelete != null ) {
+            if (post.getUserid() == postToDelete.getUserid() ) {
+                postRepository.delete(postToDelete);
+            }
+            return postToDelete;
+        } else {
+            throw new PostException();
+        }
+    }
+
 }
