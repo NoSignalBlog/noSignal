@@ -22,7 +22,7 @@ A NoSignal egy olyan online felület, ami informatikai témájú bejegyzések, k
 
 ### [Funkciók](#features)
 
-* Regisztráció: a regisztrációs űrlap kitöltésével lehetséges. Nem regisztrált illetve nem bejelentkezett felhasználó, csak a nyilvános    bejegyzéseket olvashatja, egyéb interakcióra nincs lehetősége. A regisztráció során kötelezően megadandó a felhasználó teljesen neve, e-    mail címe, választott (egyedi) felhasználóneve, jelszava, illetve opcionálisan egy profilkép.
+* Regisztráció: a regisztrációs űrlap kitöltésével lehetséges. Nem regisztrált illetve nem bejelentkezett felhasználó, csak a nyilvános    bejegyzéseket olvashatja, egyéb interakcióra nincs lehetősége. A regisztráció során kötelezően megadandó a felhasználó teljesen neve, e-    mail címe, választott (egyedi) felhasználóneve, jelszava, illetve opcionálisan egy profilkép, ami egy előre megadott listából választható.
 
 * Bejelentkezés: a bejelentkező felületen felhasználónév és jelszó megadásával lehetséges.
 
