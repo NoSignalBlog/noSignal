@@ -75,6 +75,15 @@ public class UserController {
         } catch (UserException e) {
             return ResponseEntity.badRequest().build();
         }
+    }
 
+    @Role({USER, ADMIN})
+    @DeleteMapping("/delete/{id}")
+    private ResponseEntity<User> delete(@PathVariable long id, @RequestBody User user) {
+        try {
+            return ResponseEntity.ok(userService.delete(id, user));
+        } catch (UserException e) {
+            return ResponseEntity.badRequest().build();
+        }
     }
 }
