@@ -1,8 +1,11 @@
 package hu.noSignal.noSignal.Controller;
 
 import hu.noSignal.noSignal.Controller.Services.Annotations.Role;
+import hu.noSignal.noSignal.Controller.Services.CommentService;
 import hu.noSignal.noSignal.Controller.Services.PostService;
 import hu.noSignal.noSignal.Controller.Services.UserService;
+import hu.noSignal.noSignal.Modell.Comment;
+import hu.noSignal.noSignal.Modell.Exceptions.CommentException;
 import hu.noSignal.noSignal.Modell.Exceptions.PostException;
 import hu.noSignal.noSignal.Modell.Exceptions.UserException;
 import hu.noSignal.noSignal.Modell.Post;
@@ -23,6 +26,9 @@ public class PostController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private CommentService commentService;
 
     @Role({ADMIN, USER})
     @PostMapping("/new")
@@ -61,8 +67,19 @@ public class PostController {
     @PutMapping("/edit/{id}")
     private ResponseEntity<Post> editPost(@PathVariable long id, @RequestBody Post post)  {
         try {
+            post.setUserid(userService.getUser().getId());
             return ResponseEntity.ok(postService.editPost(id,post));
         } catch (PostException e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
+
+    @Role({USER,ADMIN})
+    @PostMapping("/comment")
+    private ResponseEntity<Comment> writeComment(@RequestBody Comment comment) {
+        try {
+            return ResponseEntity.ok(commentService.newComment(comment));
+        } catch (CommentException e) {
             return ResponseEntity.badRequest().build();
         }
     }
