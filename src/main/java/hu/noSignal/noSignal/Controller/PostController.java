@@ -83,4 +83,18 @@ public class PostController {
             return ResponseEntity.badRequest().build();
         }
     }
+
+    @Role({USER, ADMIN})
+    @PutMapping("/delete/{id}")
+    private ResponseEntity<Post> deletePost(@PathVariable long id, @RequestBody Post post)  {
+        try {
+            post.setUserid(userService.getUser().getId());
+            return ResponseEntity.ok(postService.deletePost(id,post));
+        } catch (PostException e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
+
+
+
 }
