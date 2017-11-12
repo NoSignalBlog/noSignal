@@ -99,7 +99,7 @@ public class UserService {
         }
         User userToDelete = userRepository.findOne(id);
         if (userToDelete != null) {
-            userRepository.save(userToDelete);
+            userRepository.delete(userToDelete);
             return userToDelete;
         } else {
             throw new UserException();
