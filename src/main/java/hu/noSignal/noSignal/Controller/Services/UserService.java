@@ -92,4 +92,17 @@ public class UserService {
             throw new UserException();
         }
     }
+
+    public User delete(long id, User user) throws UserException {
+        if (this.user == null) {
+            throw new UserException();
+        }
+        User userToDelete = userRepository.findOne(id);
+        if (userToDelete != null) {
+            userRepository.delete(userToDelete);
+            return userToDelete;
+        } else {
+            throw new UserException();
+        }
+    }
 }
