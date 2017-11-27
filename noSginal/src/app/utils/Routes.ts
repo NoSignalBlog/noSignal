@@ -7,7 +7,8 @@ export class Routes {
 
 export class Server {
   private static address: String = 'localhost';
-  private static port: String = '4200';
+  //TODO server port?
+  private static port: String = '8080';
 
   static routeTo(route: String) {
     return `http://${Server.address}:${Server.port}/${route}`
