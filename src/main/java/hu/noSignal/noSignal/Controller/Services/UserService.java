@@ -10,7 +10,7 @@ import org.springframework.web.context.annotation.SessionScope;
 
 import java.util.Optional;
 
-import static hu.noSignal.noSignal.Modell.User.Role.GUEST;
+import static hu.noSignal.noSignal.Modell.User.Role.ADMIN;
 import static hu.noSignal.noSignal.Modell.User.Role.USER;
 
 @Service
@@ -45,7 +45,11 @@ public class UserService {
         Optional<User> userToLogin = userRepository.findByUsernameAndPassword(user.getUsername(), user.getPassword());
         if (userToLogin.isPresent()) {
             this.user = userToLogin.get();
-            this.user.setRole(USER);
+            if ( this.user.getRole() == ADMIN ) {
+                this.user.setRole(ADMIN);
+            } else {
+                this.user.setRole(USER);
+            }
             return userToLogin.get();
         } else {
             throw new UserException();
