@@ -9,3 +9,7 @@
   flex-direction: column;
   align-items: center;
 }
+
+#loginError {
+  padding: 20px;
+}
