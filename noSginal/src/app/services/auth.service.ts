@@ -17,6 +17,7 @@ export class AuthService {
 
   login(user: User) {
     console.log(Object.keys(this.http.post(Server.routeTo(Routes.LOGIN), user)));
+    console.log("teszt");
     return this.http.post(Server.routeTo(Routes.LOGIN), user)
       .map(res => {
         this.isLoggedIn = true;

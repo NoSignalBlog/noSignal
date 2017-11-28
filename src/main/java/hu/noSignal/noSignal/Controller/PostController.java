@@ -18,7 +18,7 @@ import static hu.noSignal.noSignal.Modell.User.Role.ADMIN;
 import static hu.noSignal.noSignal.Modell.User.Role.USER;
 
 @RestController
-@RequestMapping("/posts")
+@RequestMapping("/api/posts")
 public class PostController {
 
     @Autowired
