@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     //console.log("submit");
     this.authService.login(new User(this.username.value, this.password.value))
       .subscribe(
-        res => this.router.navigate(['/posts']),
+        res => this.router.navigate(['/']),
         err => console.log(err))
   }
 
