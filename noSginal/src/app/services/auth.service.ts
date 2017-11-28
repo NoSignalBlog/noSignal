@@ -28,7 +28,7 @@ export class AuthService {
   }
 
   logout() {
-    return this.http.get(Server.routeTo(Routes.LOGOUT))
+    return this.http.post(Server.routeTo(Routes.LOGOUT), this.user)
       .map(res => {
         this.user = new User();
         this.isLoggedIn = false;
