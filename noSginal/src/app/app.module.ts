@@ -13,12 +13,14 @@ import {appRoutes} from "./routes";
 import {MaterialItemsModule} from "./MaterialItemsModule";
 import {ErrorComponent} from './directives/error/error.component';
 import {RouteGuard} from "./route.guard";
+import {MenuComponent} from './directives/menu/menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     ErrorComponent,
+    MenuComponent,
   ],
   imports: [
     BrowserModule,
