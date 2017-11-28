@@ -11,12 +11,15 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {RouteGuard} from "./route.guard";
 import {AuthService} from "./services/auth.service";
 import {HttpModule} from "@angular/http";
+import { ErrorComponent } from './directives/error/error.component';
+import {MaterialItemsModule} from "./MaterialItemsModule";
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +27,8 @@ import {HttpModule} from "@angular/http";
     ReactiveFormsModule,
     HttpModule,
     RouterModule.forRoot(appRoutes),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MaterialItemsModule
   ],
   providers: [AuthService, RouteGuard],
   bootstrap: [AppComponent]
