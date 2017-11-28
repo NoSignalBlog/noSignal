@@ -2,6 +2,8 @@ import {Injectable} from '@angular/core';
 import {Http} from "@angular/http";
 import {User} from "../model/User";
 import {Routes, Server} from "../utils/Routes";
+import 'rxjs/Rx';
+
 
 @Injectable()
 export class AuthService {
@@ -14,6 +16,8 @@ export class AuthService {
   }
 
   login(user: User) {
+    console.log(Object.keys(this.http.post(Server.routeTo(Routes.LOGIN), user)));
+    console.log("teszt");
     return this.http.post(Server.routeTo(Routes.LOGIN), user)
       .map(res => {
         this.isLoggedIn = true;

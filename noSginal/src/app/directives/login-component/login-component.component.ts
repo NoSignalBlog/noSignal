@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
     username: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required])
   });
+  hasError: boolean = false;
 
   constructor(private authService: AuthService, private router: Router) {
   }
@@ -21,10 +22,11 @@ export class LoginComponent implements OnInit {
   ngOnInit() {}
 
   submit() {
+    //console.log("submit");
     this.authService.login(new User(this.username.value, this.password.value))
       .subscribe(
         res => this.router.navigate(['/posts']),
-        err => console.log(err))
+        err => this.hasError = true)
   }
 
   get username(): AbstractControl {
