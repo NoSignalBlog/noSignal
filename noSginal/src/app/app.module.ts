@@ -8,6 +8,9 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './directives/login-component/login-component.component';
 import {appRoutes} from "./routes";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {RouteGuard} from "./route.guard";
+import {AuthService} from "./services/auth.service";
+import {HttpModule} from "@angular/http";
 
 
 @NgModule({
@@ -17,11 +20,13 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpModule,
+    RouterModule.forRoot(appRoutes),
+    BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [AuthService, RouteGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
