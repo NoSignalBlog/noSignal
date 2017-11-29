@@ -1,0 +1,15 @@
+#register-page {
+  margin: 0 auto;
+  width: 50%;
+}
+
+.register-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#registerError {
+  padding: 20px;
+}
