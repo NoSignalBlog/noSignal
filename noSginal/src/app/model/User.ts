@@ -17,7 +17,7 @@ export class User {
   profilePicture: String;
 
   constructor(username?: String, password?: String, lastname?: String, firstname?: String,  email?: String,
-              role?: String, registerDate?: Timestamp<Number>, profilePicture?: String) {
+              profilePicture?: String, role?: String, registerDate?: Timestamp<Number>) {
     this.username = username || "";
     this.lastname = lastname || "";
     this.firstname = firstname || "";

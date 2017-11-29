@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.annotation.SessionScope;
 
+import java.sql.Timestamp;
+import java.util.Calendar;
 import java.util.Optional;
 
 import static hu.noSignal.noSignal.Modell.User.Role.ADMIN;
@@ -33,10 +35,11 @@ public class UserService {
 
     public User register(User user) throws UserException {
         user.setRole(USER);
+        user.setRegisterdate(new Timestamp(System.currentTimeMillis()));
         if (userRepository.findByUsername(user.getUsername()).isPresent()) {
             throw new UserException();
         }
-        this.user = userRepository.save(user);
+        userRepository.save(user);
 
         return user;
     }

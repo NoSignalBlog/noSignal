@@ -3,6 +3,7 @@ import {LoginComponent} from "./directives/login-component/login-component.compo
 import {ErrorComponent} from "./directives/error/error.component";
 import {Role} from "./model/User";
 import {RouteGuard} from "./route.guard";
+import {RegisterComponent} from "./directives/register/register.component";
 
 export const appRoutes: Routes = [
   {
@@ -10,6 +11,7 @@ export const appRoutes: Routes = [
     canActivateChild: [RouteGuard],
     children: [
       {path: 'login', component: LoginComponent, data: {roles: [Role.GUEST]}},
+      {path: 'register', component: RegisterComponent, data: {roles: [Role.GUEST]}},
       {path: '**', component: ErrorComponent}
     ]
   }];
