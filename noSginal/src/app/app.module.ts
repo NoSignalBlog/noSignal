@@ -3,7 +3,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router'
 
-
 import {AppComponent} from './app.component';
 import {LoginComponent} from './directives/login-component/login-component.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
@@ -14,7 +13,13 @@ import {MaterialItemsModule} from "./MaterialItemsModule";
 import {ErrorComponent} from './directives/error/error.component';
 import {RouteGuard} from "./route.guard";
 import {MenuComponent} from './directives/menu/menu.component';
-import { RegisterComponent } from './directives/register/register.component';
+import {RegisterComponent} from './directives/register/register.component';
+import {PostComponent} from './directives/post/post.component';
+import {PostService} from "./services/post.service";
+
+
+import {MatListModule} from "@angular/material/list";
+import {MatCardModule} from "@angular/material/card";
 
 @NgModule({
   declarations: [
@@ -23,6 +28,7 @@ import { RegisterComponent } from './directives/register/register.component';
     ErrorComponent,
     MenuComponent,
     RegisterComponent,
+    PostComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,9 +37,11 @@ import { RegisterComponent } from './directives/register/register.component';
     HttpModule,
     RouterModule.forRoot(appRoutes),
     BrowserAnimationsModule,
-    MaterialItemsModule
+    MaterialItemsModule,
+    MatListModule,
+    MatCardModule
   ],
-  providers: [AuthService, RouteGuard],
+  providers: [AuthService, RouteGuard, PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
