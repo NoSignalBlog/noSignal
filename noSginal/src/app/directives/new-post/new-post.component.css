@@ -1,0 +1,15 @@
+#new-post-page {
+  margin: 0 auto;
+  width: 50%;
+}
+
+.new-post-form{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#postError {
+  padding: 20px;
+}
