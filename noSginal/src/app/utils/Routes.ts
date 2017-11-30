@@ -3,6 +3,7 @@ export class Routes {
   static REGISTER: String = 'usr/register';
   static LOGOUT: String = 'usr/logout';
   static POSTS: String = 'posts';
+  static NEWPOST: String = 'posts/new';
 }
 
 export class Server {

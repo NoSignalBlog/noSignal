@@ -1,5 +1,6 @@
 import {User} from "./User";
 import {Timestamp} from "rxjs/Rx";
+import {AuthService} from "../services/auth.service";
 
 export class Post {
   id: number;
@@ -14,17 +15,16 @@ export class Post {
   links: String;
   //messages: String[];
 
-  constructor( id?: number, user?: User, title?: String, visibility?: boolean, likes?: Number, text?: String,
-               links?: String,videos?: String,) {
-    this.links = links;
-    this.videos = videos;
+  constructor( userid?: Number, title?: String, visibility?: boolean, text?: String,
+               links?: String,videos?: String, id?: number, likes?: Number,  ) {
+    this.links = links || "";
+    this.videos = videos || "";
     this.text = text;
-    this.likes = likes;
+    this.likes = likes || 0;
     this.visibility = visibility;
     this.title = title;
-    this.user = user;
-    this.id = id;
-
+    this.id = id || 0;
+    this.userid = userid;
   }
 
 }

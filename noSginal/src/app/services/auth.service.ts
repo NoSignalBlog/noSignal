@@ -11,6 +11,7 @@ export class AuthService {
   user: User;
   isLoggedIn: boolean = false;
   isAdmin: boolean = false;
+  userid : Number;
 
   constructor(private http: Http) {
     this.user = new User();
@@ -29,6 +30,7 @@ export class AuthService {
       .map(res => {
         this.isLoggedIn = true;
         this.user = res.json();
+        this.userid = this.user.id;
         console.log(this.user);
         return this.user;
       })

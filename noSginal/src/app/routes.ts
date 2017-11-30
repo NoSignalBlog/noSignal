@@ -5,12 +5,14 @@ import {Role} from "./model/User";
 import {RouteGuard} from "./route.guard";
 import {RegisterComponent} from "./directives/register/register.component";
 import {PostComponent} from "./directives/post/post.component";
+import {NewPostComponent} from "./directives/new-post/new-post.component";
 
 export const appRoutes: Routes = [
   {
     path: '',
     canActivateChild: [RouteGuard],
     children: [
+      {path: 'newpost', component: NewPostComponent, data: {roles: [Role.USER, Role.ADMIN]}},
       {path: 'posts', component: PostComponent, data: {roles: [Role.USER, Role.ADMIN, Role.GUEST]}},
       {path: 'login', component: LoginComponent, data: {roles: [Role.GUEST]}},
       {path: 'register', component: RegisterComponent, data: {roles: [Role.GUEST]}},

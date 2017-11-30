@@ -78,7 +78,7 @@ public class UserService {
             userToUpdate.setLastname(user.getLastname());
             userToUpdate.setPassword(user.getPassword());
             userToUpdate.setProfilepicture(user.getProfilepicture());
-            userToUpdate.setPosts(user.getPosts());
+            //userToUpdate.setPosts(user.getPosts());
             userRepository.save(userToUpdate);
             this.user = userToUpdate;
             return userToUpdate;

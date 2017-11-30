@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.annotation.SessionScope;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -29,6 +30,8 @@ public class PostService {
         if (userRepository.findOne(post.getUserid()) == null) {
             throw new PostException();
         }
+        post.setDate(new Timestamp(System.currentTimeMillis()));
+        System.out.println(post);
         postRepository.save(post);
         return post;
     }
