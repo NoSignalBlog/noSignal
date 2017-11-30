@@ -34,7 +34,14 @@ public class PostService {
     }
 
     public Iterable<Post> listAll() {
-        return postRepository.findAll();
+        Iterator<Post> posts = postRepository.findAll().iterator();
+        Iterable<Post> iterPosts = new ArrayList<>();
+        while ( posts.hasNext() ) {
+            Post post = posts.next();
+            post.setUser(userRepository.findById(post.getUserid()).get());
+            ((ArrayList) iterPosts).add(post);
+        }
+        return iterPosts;
     }
 
     public Iterable<Post> listPublic() {
