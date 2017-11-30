@@ -14,6 +14,7 @@ import {MaterialItemsModule} from "./MaterialItemsModule";
 import {ErrorComponent} from './directives/error/error.component';
 import {RouteGuard} from "./route.guard";
 import {MenuComponent} from './directives/menu/menu.component';
+import { RegisterComponent } from './directives/register/register.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import {MenuComponent} from './directives/menu/menu.component';
     LoginComponent,
     ErrorComponent,
     MenuComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

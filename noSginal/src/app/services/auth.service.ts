@@ -16,6 +16,13 @@ export class AuthService {
     this.user = new User();
   }
 
+  register(user: User) {
+    return this.http.post(Server.routeTo(Routes.REGISTER), user)
+      .map(res => {
+        return this.user;
+      })
+  }
+
   login(user: User) {
     console.log(Object.keys(this.http.post(Server.routeTo(Routes.LOGIN), user)));
     return this.http.post(Server.routeTo(Routes.LOGIN), user)
