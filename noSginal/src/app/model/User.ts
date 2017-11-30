@@ -15,6 +15,7 @@ export class User {
   role: String;
   registerDate: Timestamp<Number>;
   profilePicture: String;
+  id: Number;
 
   constructor(username?: String, password?: String, lastname?: String, firstname?: String,  email?: String,
               profilePicture?: String, role?: String, registerDate?: Timestamp<Number>) {

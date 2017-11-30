@@ -14,10 +14,10 @@ import {PostService} from "../../services/post.service";
 export class NewPostComponent implements OnInit {
   newPostForm: FormGroup = new FormGroup({
     title: new FormControl('', [Validators.required]),
-    text: new FormControl('', [Validators.required])
+    text: new FormControl('', [Validators.required]),
+    checked: new FormControl('', [Validators.required])
   });
   hasError: boolean = false;
-  checked = false;
 
   constructor(private authService: AuthService, private router: Router, private postService: PostService) {
   }
@@ -25,8 +25,8 @@ export class NewPostComponent implements OnInit {
   ngOnInit() {}
 
   submit() {
-    //console.log("submit");
-    this.postService.create(new Post(this.authService.user, this.title.value, this.checked, this.text.value ))
+    console.log(this.authService);
+    this.postService.create(new Post(this.authService.userid.valueOf(), this.title.value, this.checked.value, this.text.value ))
       .subscribe(
         res => this.router.navigate(['/posts']),
         err => this.hasError = true)
@@ -38,6 +38,10 @@ export class NewPostComponent implements OnInit {
 
   get text(): AbstractControl {
     return this.newPostForm.get('text');
+  }
+
+  get checked(): AbstractControl {
+    return this.newPostForm.get('checked');
   }
 }
 

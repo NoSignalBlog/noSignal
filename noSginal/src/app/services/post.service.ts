@@ -17,6 +17,7 @@ export class PostService {
   }
 
   create(post: Post): Observable<Post> {
+    console.log(post);
     return this.http.post(Server.routeTo(Routes.NEWPOST), post)
       .map(res => res.json())
   }
