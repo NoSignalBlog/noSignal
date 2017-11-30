@@ -16,8 +16,8 @@ export class PostService {
       .map(res => res.json())
   }
 
-  create(issue: Post): Observable<Post> {
-    return this.http.post(Server.routeTo(Routes.POSTS), issue)
+  create(post: Post): Observable<Post> {
+    return this.http.post(Server.routeTo(Routes.NEWPOST), post)
       .map(res => res.json())
   }
 

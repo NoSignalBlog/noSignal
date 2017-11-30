@@ -14,8 +14,8 @@ export class Post {
   links: String;
   //messages: String[];
 
-  constructor( id?: number, user?: User, title?: String, visibility?: boolean, likes?: Number, text?: String,
-               links?: String,videos?: String,) {
+  constructor( user?: User, title?: String, visibility?: boolean, text?: String,
+               links?: String,videos?: String, id?: number, likes?: Number) {
     this.links = links;
     this.videos = videos;
     this.text = text;

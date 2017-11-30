@@ -20,6 +20,8 @@ import {PostService} from "./services/post.service";
 
 import {MatListModule} from "@angular/material/list";
 import {MatCardModule} from "@angular/material/card";
+import {NewPostComponent} from "./directives/new-post/new-post.component";
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ import {MatCardModule} from "@angular/material/card";
     MenuComponent,
     RegisterComponent,
     PostComponent,
+    NewPostComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,8 @@ import {MatCardModule} from "@angular/material/card";
     BrowserAnimationsModule,
     MaterialItemsModule,
     MatListModule,
-    MatCardModule
+    MatCardModule,
+    MatSlideToggleModule
   ],
   providers: [AuthService, RouteGuard, PostService],
   bootstrap: [AppComponent]
