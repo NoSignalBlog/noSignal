@@ -4,6 +4,7 @@ export class Routes {
   static LOGOUT: String = 'usr/logout';
   static POSTS: String = 'posts';
   static NEWPOST: String = 'posts/new';
+  static LIKES: String = "posts/like"
 }
 
 export class Server {

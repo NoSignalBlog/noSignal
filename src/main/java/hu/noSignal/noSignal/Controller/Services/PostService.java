@@ -59,8 +59,8 @@ public class PostService {
         return publics;
     }
 
-    public Post likePost(long id, Post post) throws PostException {
-        Post postToLike = postRepository.findOne(id);
+    public Post likePost(Post post) throws PostException {
+        Post postToLike = postRepository.findOne(post.getId());
         if ( postToLike != null ) {
             int likes = postToLike.getLikes();
             postToLike.setLikes(++likes);

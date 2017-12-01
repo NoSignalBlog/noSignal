@@ -54,10 +54,11 @@ public class PostController {
     }
 
     @Role({USER, ADMIN})
-    @PutMapping("/like/{id}")
-    private ResponseEntity<Post> like(@PathVariable long id, @RequestBody Post post)  {
+    @PostMapping("/like")
+    private ResponseEntity<Post> like(@RequestBody Post post)  {
         try {
-            return ResponseEntity.ok(postService.likePost(id,post));
+            System.out.println("like");
+            return ResponseEntity.ok(postService.likePost(post));
         } catch (PostException e) {
             return ResponseEntity.badRequest().build();
         }
@@ -68,7 +69,7 @@ public class PostController {
     private ResponseEntity<Post> editPost(@PathVariable long id, @RequestBody Post post)  {
         try {
             post.setUserid(userService.getUser().getId());
-            return ResponseEntity.ok(postService.editPost(id,post));
+            return ResponseEntity.ok(postService.editPost(id, post));
         } catch (PostException e) {
             return ResponseEntity.badRequest().build();
         }

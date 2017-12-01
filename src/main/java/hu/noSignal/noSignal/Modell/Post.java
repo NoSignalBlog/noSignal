@@ -33,6 +33,7 @@ public class Post extends BaseEntity {
     private int likes;
 
     @Column(nullable = false)
+    @Lob
     private String text;
 
     @Column(nullable = false)

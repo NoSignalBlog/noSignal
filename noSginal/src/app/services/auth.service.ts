@@ -3,6 +3,7 @@ import {Http} from "@angular/http";
 import {Role, User} from "../model/User";
 import {Routes, Server} from "../utils/Routes";
 import 'rxjs/Rx';
+import {Post} from "../model/Post";
 
 
 @Injectable()
@@ -25,7 +26,6 @@ export class AuthService {
   }
 
   login(user: User) {
-    console.log(Object.keys(this.http.post(Server.routeTo(Routes.LOGIN), user)));
     return this.http.post(Server.routeTo(Routes.LOGIN), user)
       .map(res => {
         this.isLoggedIn = true;

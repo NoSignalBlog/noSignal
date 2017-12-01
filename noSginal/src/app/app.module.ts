@@ -17,11 +17,14 @@ import {RegisterComponent} from './directives/register/register.component';
 import {PostComponent} from './directives/post/post.component';
 import {PostService} from "./services/post.service";
 
-
 import {MatListModule} from "@angular/material/list";
 import {MatCardModule} from "@angular/material/card";
 import {NewPostComponent} from "./directives/new-post/new-post.component";
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import { LikeButtonComponent } from './directives/like-button/like-button.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     MenuComponent,
     RegisterComponent,
     PostComponent,
-    NewPostComponent
+    NewPostComponent,
+    LikeButtonComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +47,9 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     MaterialItemsModule,
     MatListModule,
     MatCardModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [AuthService, RouteGuard, PostService],
   bootstrap: [AppComponent]

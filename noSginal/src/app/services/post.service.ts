@@ -17,8 +17,17 @@ export class PostService {
   }
 
   create(post: Post): Observable<Post> {
-    console.log(post);
-    return this.http.post(Server.routeTo(Routes.NEWPOST), post)
+    return this.http.post(Server.routeTo(Routes.NEWPOST), post).map(
+      res => res.json()
+    );
+  }
+
+  like(post: Post) {
+    return this.http.post(Server.routeTo(Routes.LIKES), post);
+  }
+
+  /*create(issue: Post): Observable<Post> {
+    return this.http.post(Server.routeTo(Routes.POSTS), issue)
       .map(res => res.json())
   }
 
@@ -39,5 +48,5 @@ export class PostService {
 
   sendMessage(id: number, message: String) {
     return this.http.post(Server.routeTo(Routes.POSTS + '/' + id + '/message'), {message})
-  }
+  }*/
 }
