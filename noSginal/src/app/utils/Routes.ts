@@ -1,6 +1,8 @@
 export class Routes {
   static LOGIN: String = 'usr/login';
   static REGISTER: String = 'usr/register';
+  static GET_USER_BY_ID: String = "usr/search";
+  static USER_SETTINGS: String = "usr/data"
   static LOGOUT: String = 'usr/logout';
   static POSTS: String = 'posts';
   static NEWPOST: String = 'posts/new';

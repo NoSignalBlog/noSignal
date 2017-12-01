@@ -86,4 +86,14 @@ public class UserController {
             return ResponseEntity.badRequest().build();
         }
     }
+
+    @Role({USER, ADMIN})
+    @GetMapping("/search/{id}")
+    private ResponseEntity<User> findOne(@PathVariable long id) {
+        try {
+            return ResponseEntity.ok(userService.findUserById(id));
+        } catch (UserException e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
 }

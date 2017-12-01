@@ -25,6 +25,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { LikeButtonComponent } from './directives/like-button/like-button.component';
+import { UserSettingsComponent } from './directives/user-settings/user-settings.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { LikeButtonComponent } from './directives/like-button/like-button.compon
     RegisterComponent,
     PostComponent,
     NewPostComponent,
-    LikeButtonComponent
+    LikeButtonComponent,
+    UserSettingsComponent
   ],
   imports: [
     BrowserModule,

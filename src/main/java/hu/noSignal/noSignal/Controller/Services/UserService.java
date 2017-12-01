@@ -94,7 +94,18 @@ public class UserService {
         }
         User userToGet = userRepository.findOne(id);
         if ( userToGet != null ) {
+            userToGet.setPassword("");
             return userToGet;
+        } else {
+            throw new UserException();
+        }
+    }
+
+    public User findUserById(long id) throws UserException {
+        User foundUser = userRepository.findOne(id);
+        if (foundUser != null) {
+            foundUser.setPassword("");
+            return foundUser;
         } else {
             throw new UserException();
         }
