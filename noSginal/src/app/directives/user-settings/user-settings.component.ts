@@ -17,8 +17,8 @@ export class UserSettingsComponent implements OnInit {
 
   constructor(private authService: AuthService, private router: Router) {
       this.settingsForm = new FormGroup({
-        password: new FormControl(this.authService.user.password, [Validators.required]),
-        passwordVerify: new FormControl(this.authService.user.password, [Validators.required]),
+        password: new FormControl('', [Validators.required]),
+        passwordVerify: new FormControl('', [Validators.required]),
         lastname: new FormControl(this.authService.user.lastname, [Validators.required]),
         firstname: new FormControl(this.authService.user.firstname, [Validators.required]),
         email: new FormControl(this.authService.user.email, [Validators.required, Validators.email]),

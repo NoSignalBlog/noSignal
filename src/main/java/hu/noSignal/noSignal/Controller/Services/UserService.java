@@ -1,5 +1,6 @@
 package hu.noSignal.noSignal.Controller.Services;
 
+import hu.noSignal.noSignal.Controller.Util.BCrypt;
 import hu.noSignal.noSignal.Modell.Exceptions.UserException;
 import hu.noSignal.noSignal.Modell.Repositories.UserRepository;
 import hu.noSignal.noSignal.Modell.User;
@@ -33,9 +34,19 @@ public class UserService {
         return this.user != null;
     }
 
+
+    private String encryptPassword(String password) {
+        return BCrypt.hashpw(password, BCrypt.gensalt());
+    }
+
+    private boolean matchPassword(String candidate, String hashed) {
+        return BCrypt.checkpw(candidate, hashed);
+    }
+
     public User register(User user) throws UserException {
         user.setRole(USER);
         user.setRegisterdate(new Timestamp(System.currentTimeMillis()));
+        user.setPassword(encryptPassword(user.getPassword()));
         if (userRepository.findByUsername(user.getUsername()).isPresent()) {
             throw new UserException();
         }
@@ -45,8 +56,8 @@ public class UserService {
     }
 
     public User login(User user) throws UserException {
-        Optional<User> userToLogin = userRepository.findByUsernameAndPassword(user.getUsername(), user.getPassword());
-        if (userToLogin.isPresent()) {
+        Optional<User> userToLogin = userRepository.findByUsername(user.getUsername());
+        if (userToLogin.isPresent() && matchPassword(user.getPassword(), userToLogin.get().getPassword())) {
             this.user = userToLogin.get();
             if ( this.user.getRole() == ADMIN ) {
                 this.user.setRole(ADMIN);
