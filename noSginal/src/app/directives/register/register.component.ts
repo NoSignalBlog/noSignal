@@ -11,12 +11,14 @@ import {User} from "../../model/User";
 })
 
 export class RegisterComponent implements OnInit {
+
   registerForm: FormGroup = new FormGroup({
     username: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required]),
+    passwordVerify: new FormControl('', [Validators.required]),
     lastname: new FormControl('', [Validators.required]),
     firstname: new FormControl('', [Validators.required]),
-    email: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required, Validators.email]),
     profilePicture: new FormControl('', [Validators.required])
   });
   hasError: boolean = false;
@@ -27,11 +29,14 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {}
 
   submit() {
-    this.authService.register(new User(this.username.value, this.password.value, this.lastname.value, this.firstname.value,
-      this.email.value, this.profilePicture.value))
-      .subscribe(
-        res => this.router.navigate(['/login']),
-        err => this.hasError = true)
+    this.hasError = this.password.value != this.passwordVerify.value;
+    if (!this.hasError) {
+      this.authService.register(new User(this.username.value, this.password.value, this.lastname.value, this.firstname.value,
+        this.email.value, this.profilePicture.value))
+        .subscribe(
+          res => this.router.navigate(['/login']),
+          err => this.hasError = true)
+    }
   }
 
   get username(): AbstractControl {
@@ -40,6 +45,10 @@ export class RegisterComponent implements OnInit {
 
   get password(): AbstractControl {
     return this.registerForm.get('password');
+  }
+
+  get passwordVerify(): AbstractControl {
+    return this.registerForm.get('passwordVerify');
   }
 
   get lastname(): AbstractControl {

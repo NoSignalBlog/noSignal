@@ -14,17 +14,17 @@ export class User {
   email: String;
   role: String;
   registerDate: Timestamp<Number>;
-  profilePicture: String;
+  profilepicture: String;
   id: Number;
 
   constructor(username?: String, password?: String, lastname?: String, firstname?: String,  email?: String,
-              profilePicture?: String, role?: String, registerDate?: Timestamp<Number>) {
+              profilepicture?: String, role?: String, registerDate?: Timestamp<Number>) {
     this.username = username || "";
     this.lastname = lastname || "";
     this.firstname = firstname || "";
     //TODO register date
     //this.registerDate = registerDate || "";
-    this.profilePicture = profilePicture || "";
+    this.profilepicture = profilepicture || "";
     this.password = password || "";
     this.email = email || "";
     this.role = role || Role.GUEST;

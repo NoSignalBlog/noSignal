@@ -19,10 +19,7 @@ export class AuthService {
   }
 
   register(user: User) {
-    return this.http.post(Server.routeTo(Routes.REGISTER), user)
-      .map(res => {
-        return this.user;
-      })
+    return this.http.post(Server.routeTo(Routes.REGISTER), user);
   }
 
   login(user: User) {
@@ -42,5 +39,12 @@ export class AuthService {
         this.user = new User();
         this.isLoggedIn = false;
       })
+  }
+
+  modifyUserSettings(user: User) {
+    user.id = this.user.id;
+    user.role = this.user.role;
+    this.user = user;
+    return this.http.put(Server.routeTo(Routes.USER_SETTINGS + "/" + this.user.id), this.user);
   }
 }

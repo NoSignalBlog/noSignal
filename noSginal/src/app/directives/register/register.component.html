@@ -21,6 +21,15 @@
 
     <div class="form-control">
       <mat-form-field>
+        <input matInput placeholder="Password verify" formControlName="passwordVerify" type="password">
+        <mat-error *ngIf="passwordVerify.hasError('required')">
+          Password verify is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form-control">
+      <mat-form-field>
         <input matInput placeholder="Lastname" formControlName="lastname">
         <mat-error *ngIf="lastname.hasError('required')">
           Lastname is <strong>required</strong>
@@ -43,6 +52,9 @@
         <mat-error *ngIf="email.hasError('required')">
           E-mail is <strong>required</strong>
         </mat-error>
+        <mat-error *ngIf="email.hasError('email')">
+          E-mail is incorrect!
+        </mat-error>
       </mat-form-field>
     </div>
 
@@ -56,7 +68,7 @@
     </div>
 
     <mat-error *ngIf="this.hasError" id="registerError">
-      <strong>Invalid register data!</strong>
+      <strong>Invalid register data or passwords are different!</strong>
     </mat-error>
 
     <button mat-raised-button class="mat-primary" (click)="submit()" [disabled]="!registerForm.valid">Register</button>
