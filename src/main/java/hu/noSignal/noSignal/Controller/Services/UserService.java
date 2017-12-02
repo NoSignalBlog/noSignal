@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.annotation.SessionScope;
 
+import javax.swing.text.html.Option;
 import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.Optional;
@@ -87,7 +88,7 @@ public class UserService {
             userToUpdate.setEmail(user.getEmail());
             userToUpdate.setFirstname(user.getFirstname());
             userToUpdate.setLastname(user.getLastname());
-            userToUpdate.setPassword(user.getPassword());
+            //userToUpdate.setPassword(user.getPassword());
             userToUpdate.setProfilepicture(user.getProfilepicture());
             //userToUpdate.setPosts(user.getPosts());
             userRepository.save(userToUpdate);
@@ -130,6 +131,26 @@ public class UserService {
         if (userToDelete != null) {
             userRepository.delete(userToDelete);
             return userToDelete;
+        } else {
+            throw new UserException();
+        }
+    }
+
+    public boolean checkPassword(User user) {
+        Optional<User> userToCheck = userRepository.findByUsername(user.getUsername());
+        return userToCheck.isPresent() && matchPassword(user.getPassword(), userToCheck.get().getPassword());
+    }
+
+    public Boolean changePassword(User user) throws UserException {
+        Optional<User> userToModify = userRepository.findByUsername(user.getUsername());
+        if (userToModify.isPresent()) {
+            User modifiedUser = userToModify.get();
+            modifiedUser.setPassword(encryptPassword(user.getPassword()));
+            if (this.user.getId() == modifiedUser.getId()) {
+                this.user.setPassword(modifiedUser.getPassword());
+            }
+            userRepository.save(modifiedUser);
+            return new Boolean(true);
         } else {
             throw new UserException();
         }
