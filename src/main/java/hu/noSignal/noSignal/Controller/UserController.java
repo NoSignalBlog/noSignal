@@ -96,4 +96,20 @@ public class UserController {
             return ResponseEntity.badRequest().build();
         }
     }
+
+    @Role({USER, ADMIN})
+    @PostMapping("/check")
+    private ResponseEntity<Boolean> checkPassword(@RequestBody User user) {
+        return ResponseEntity.ok(userService.checkPassword(user));
+    }
+
+    @Role({USER, ADMIN})
+    @PutMapping("/changePwd")
+    private ResponseEntity<Boolean> changePassword(@RequestBody User user) {
+        try {
+            return ResponseEntity.ok(userService.changePassword(user));
+        } catch (UserException e) {
+            return ResponseEntity.badRequest().build();
+        }
+    }
 }

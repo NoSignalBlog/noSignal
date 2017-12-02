@@ -26,6 +26,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { LikeButtonComponent } from './directives/like-button/like-button.component';
 import { UserSettingsComponent } from './directives/user-settings/user-settings.component';
+import { PasswordChangeComponent } from './directives/password-change/password-change.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { UserSettingsComponent } from './directives/user-settings/user-settings.
     PostComponent,
     NewPostComponent,
     LikeButtonComponent,
-    UserSettingsComponent
+    UserSettingsComponent,
+    PasswordChangeComponent
   ],
   imports: [
     BrowserModule,

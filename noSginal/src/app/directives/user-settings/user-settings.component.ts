@@ -17,8 +17,6 @@ export class UserSettingsComponent implements OnInit {
 
   constructor(private authService: AuthService, private router: Router) {
       this.settingsForm = new FormGroup({
-        password: new FormControl('', [Validators.required]),
-        passwordVerify: new FormControl('', [Validators.required]),
         lastname: new FormControl(this.authService.user.lastname, [Validators.required]),
         firstname: new FormControl(this.authService.user.firstname, [Validators.required]),
         email: new FormControl(this.authService.user.email, [Validators.required, Validators.email]),
@@ -30,14 +28,15 @@ export class UserSettingsComponent implements OnInit {
   }
 
   submit() {
-    this.hasError = this.password.value != this.passwordVerify.value;
-    if (!this.hasError) {
-      this.authService.modifyUserSettings(new User("", this.password.value, this.lastname.value, this.firstname.value,
+      this.authService.modifyUserSettings(new User("", "", this.lastname.value, this.firstname.value,
         this.email.value, this.profilepicture.value))
         .subscribe(
           res => this.router.navigate(['/posts']),
           err => this.hasError = true)
-    }
+  }
+
+  changePwd() {
+    this.router.navigate(['/changePwd']);
   }
 
   get password(): AbstractControl {

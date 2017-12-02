@@ -47,4 +47,12 @@ export class AuthService {
     this.user = user;
     return this.http.put(Server.routeTo(Routes.USER_SETTINGS + "/" + this.user.id), this.user);
   }
+
+  checkPassword(user: User) {
+    return this.http.post(Server.routeTo(Routes.CHECK_PASSWORD), user);
+  }
+
+  changePassword(user: User) {
+    return this.http.put(Server.routeTo(Routes.CHANGE_PASSWORD), user);
+  }
 }

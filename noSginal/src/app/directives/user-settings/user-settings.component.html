@@ -22,24 +22,6 @@
 
     <div class="form-control">
       <mat-form-field>
-        <input matInput placeholder="Password" formControlName="password" type="password">
-        <mat-error *ngIf="password.hasError('required')">
-          Password is <strong>required</strong>
-        </mat-error>
-      </mat-form-field>
-    </div>
-
-    <div class="form-control">
-      <mat-form-field>
-        <input matInput placeholder="Password verify" formControlName="passwordVerify" type="password">
-        <mat-error *ngIf="passwordVerify.hasError('required')">
-          Password verify is <strong>required</strong>
-        </mat-error>
-      </mat-form-field>
-    </div>
-
-    <div class="form-control">
-      <mat-form-field>
         <input matInput placeholder="E-mail" formControlName="email">
         <mat-error *ngIf="email.hasError('required')">
           E-mail is <strong>required</strong>
@@ -64,6 +46,7 @@
     </mat-error>
 
     <button mat-raised-button class="mat-primary" (click)="submit()" [disabled]="!settingsForm.valid">Save</button>
+    <button mat-raised-button class="mat-accent" (click)="changePwd()">Change Password</button>
 
   </form>
 </div>

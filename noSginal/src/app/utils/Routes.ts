@@ -6,7 +6,9 @@ export class Routes {
   static LOGOUT: String = 'usr/logout';
   static POSTS: String = 'posts';
   static NEWPOST: String = 'posts/new';
-  static LIKES: String = "posts/like"
+  static LIKES: String = "posts/like";
+  static CHECK_PASSWORD = "usr/check";
+  static CHANGE_PASSWORD = "usr/changePwd"
 }
 
 export class Server {
