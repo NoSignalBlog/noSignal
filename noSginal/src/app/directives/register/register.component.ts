@@ -11,6 +11,7 @@ import {User} from "../../model/User";
 })
 
 export class RegisterComponent implements OnInit {
+
   registerForm: FormGroup = new FormGroup({
     username: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required]),

@@ -1,3 +1,57 @@
-<p>
-  user-settings works!
-</p>
+<div class="page-body" id="settings-page">
+
+  <form [formGroup]="settingsForm" class="settings-form" novalidate>
+
+    <div class="form-control">
+      <mat-form-field>
+        <input matInput placeholder="Lastname" formControlName="lastname">
+        <mat-error *ngIf="lastname.hasError('required')">
+          Lastname is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form-control">
+      <mat-form-field>
+        <input matInput placeholder="Firstname" formControlName="firstname">
+        <mat-error *ngIf="firstname.hasError('required')">
+          Firstname is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form-control">
+      <mat-form-field>
+        <input matInput placeholder="Password" formControlName="password" type="password">
+        <mat-error *ngIf="password.hasError('required')">
+          Password is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form-control">
+      <mat-form-field>
+        <input matInput placeholder="E-mail" formControlName="email">
+        <mat-error *ngIf="email.hasError('required')">
+          E-mail is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form-control">
+      <mat-form-field>
+        <input matInput placeholder="Profile picture" formControlName="profilePicture">
+        <mat-error *ngIf="profilePicture.hasError('required')">
+          Profile picture is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <mat-error *ngIf="this.hasError" id="registerError">
+      <strong>Invalid register data!</strong>
+    </mat-error>
+
+    <button mat-raised-button class="mat-primary" (click)="submit()" [disabled]="!settingsForm.valid">Save</button>
+
+  </form>
+</div>
