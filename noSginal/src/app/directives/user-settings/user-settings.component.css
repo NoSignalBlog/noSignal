@@ -13,3 +13,11 @@
 #settingsError {
   padding: 20px;
 }
+
+.form-control {
+  margin-bottom: 3%;
+}
+
+mat-error {
+  padding: 2%;
+}

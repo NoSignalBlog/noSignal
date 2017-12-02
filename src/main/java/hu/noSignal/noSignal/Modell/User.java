@@ -39,7 +39,7 @@ public class User extends BaseEntity {
     @Column(nullable = false)
     private Timestamp registerdate;
 
-    @Column
+    @Column()
     private String profilepicture;
 
     //@JoinColumn

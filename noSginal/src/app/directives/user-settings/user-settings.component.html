@@ -31,24 +31,36 @@
 
     <div class="form-control">
       <mat-form-field>
-        <input matInput placeholder="E-mail" formControlName="email">
-        <mat-error *ngIf="email.hasError('required')">
-          E-mail is <strong>required</strong>
+        <input matInput placeholder="Password verify" formControlName="passwordVerify" type="password">
+        <mat-error *ngIf="passwordVerify.hasError('required')">
+          Password verify is <strong>required</strong>
         </mat-error>
       </mat-form-field>
     </div>
 
     <div class="form-control">
       <mat-form-field>
-        <input matInput placeholder="Profile picture" formControlName="profilePicture">
-        <mat-error *ngIf="profilePicture.hasError('required')">
+        <input matInput placeholder="E-mail" formControlName="email">
+        <mat-error *ngIf="email.hasError('required')">
+          E-mail is <strong>required</strong>
+        </mat-error>
+        <mat-error *ngIf="email.hasError('email')">
+          Incorrect e-mail!
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form-control">
+      <mat-form-field>
+        <input matInput placeholder="Profile picture" formControlName="profilepicture">
+        <mat-error *ngIf="profilepicture.hasError('required')">
           Profile picture is <strong>required</strong>
         </mat-error>
       </mat-form-field>
     </div>
 
     <mat-error *ngIf="this.hasError" id="registerError">
-      <strong>Invalid register data!</strong>
+      <strong>Invalid data or passwords are different!</strong>
     </mat-error>
 
     <button mat-raised-button class="mat-primary" (click)="submit()" [disabled]="!settingsForm.valid">Save</button>

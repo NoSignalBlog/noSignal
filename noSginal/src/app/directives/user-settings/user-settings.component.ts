@@ -21,8 +21,8 @@ export class UserSettingsComponent implements OnInit {
         passwordVerify: new FormControl(this.authService.user.password, [Validators.required]),
         lastname: new FormControl(this.authService.user.lastname, [Validators.required]),
         firstname: new FormControl(this.authService.user.firstname, [Validators.required]),
-        email: new FormControl(this.authService.user.email, [Validators.required]),
-        profilePicture: new FormControl(this.authService.user.profilePicture, [])
+        email: new FormControl(this.authService.user.email, [Validators.required, Validators.email]),
+        profilepicture: new FormControl(this.authService.user.profilepicture, [])
       });
   }
 
@@ -30,11 +30,14 @@ export class UserSettingsComponent implements OnInit {
   }
 
   submit() {
-    this.authService.modifyUserSettings(new User("", this.password.value, this.lastname.value, this.firstname.value,
-      this.email.value, this.profilePicture.value))
-      .subscribe(
-        res => this.router.navigate(['/posts']),
-        err => this.hasError = true)
+    this.hasError = this.password.value != this.passwordVerify.value;
+    if (!this.hasError) {
+      this.authService.modifyUserSettings(new User("", this.password.value, this.lastname.value, this.firstname.value,
+        this.email.value, this.profilepicture.value))
+        .subscribe(
+          res => this.router.navigate(['/posts']),
+          err => this.hasError = true)
+    }
   }
 
   get password(): AbstractControl {
@@ -42,7 +45,7 @@ export class UserSettingsComponent implements OnInit {
   }
 
   get passwordVerify(): AbstractControl {
-    return this.settingsForm.get('passwordVerifiy');
+    return this.settingsForm.get('passwordVerify');
   }
 
   get lastname(): AbstractControl {
@@ -57,8 +60,8 @@ export class UserSettingsComponent implements OnInit {
     return this.settingsForm.get('email');
   }
 
-  get profilePicture(): AbstractControl {
-    return this.settingsForm.get('profilePicture');
+  get profilepicture(): AbstractControl {
+    return this.settingsForm.get('profilepicture');
   }
 
 }

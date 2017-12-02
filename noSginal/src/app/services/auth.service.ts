@@ -19,10 +19,7 @@ export class AuthService {
   }
 
   register(user: User) {
-    return this.http.post(Server.routeTo(Routes.REGISTER), user)
-      .map(res => {
-        return this.user;
-      })
+    return this.http.post(Server.routeTo(Routes.REGISTER), user);
   }
 
   login(user: User) {
