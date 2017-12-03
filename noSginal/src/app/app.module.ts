@@ -24,9 +24,11 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import {MatToolbarModule} from '@angular/material/toolbar';
 import { LikeButtonComponent } from './directives/like-button/like-button.component';
 import { UserSettingsComponent } from './directives/user-settings/user-settings.component';
 import { PasswordChangeComponent } from './directives/password-change/password-change.component';
+import { WelcomeComponent } from './directives/welcome/welcome.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,8 @@ import { PasswordChangeComponent } from './directives/password-change/password-c
     NewPostComponent,
     LikeButtonComponent,
     UserSettingsComponent,
-    PasswordChangeComponent
+    PasswordChangeComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +56,8 @@ import { PasswordChangeComponent } from './directives/password-change/password-c
     MatCardModule,
     MatSlideToggleModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatToolbarModule
   ],
   providers: [AuthService, RouteGuard, PostService],
   bootstrap: [AppComponent]
