@@ -50,10 +50,9 @@
     </mat-error>
 
     <div class = "pictures">
-      <img mat-card-image src = "assets/img/prof1.jpg" class = "profilePicture">
-      <img mat-card-image image src = "assets/img/prof2.png" class = "profilePicture">
-      <img mat-card-image src = "assets/img/prof3.png" class = "profilePicture">
-
+      <img mat-card-image *ngIf = "profilepicture.value == pictures[0].value" src = "assets/img/prof1.jpg" class = "profilePicture">
+      <img mat-card-image *ngIf = "profilepicture.value == pictures[1].value" image src = "assets/img/prof2.png" class = "profilePicture">
+      <img mat-card-image *ngIf = "profilepicture.value == pictures[2].value" src = "assets/img/prof3.png" class = "profilePicture">
     </div>
 
     <button mat-raised-button class="mat-primary" (click)="submit()" [disabled]="!settingsForm.valid">Save</button>
