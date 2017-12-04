@@ -1,7 +1,7 @@
 insert into USERS (ID, VERSION, USERNAME, LASTNAME, FIRSTNAME, EMAIL, PASSWORD, ROLE, REGISTERDATE, PROFILEPICTURE)
-values (0,0,'admin','admin','admin','admin@admin.hu','$2a$10$KyRv5y3Y/lUqVn90R/9RFustMTnlanGwKBY/H/iY/T/cMix4XSH3y','ADMIN', current_timestamp(),'image');
+values (0,0,'admin','admin','admin','admin@admin.hu','$2a$10$KyRv5y3Y/lUqVn90R/9RFustMTnlanGwKBY/H/iY/T/cMix4XSH3y','ADMIN', current_timestamp(),'prof1.jpg');
 insert into USERS (ID, VERSION, USERNAME, LASTNAME, FIRSTNAME, EMAIL, PASSWORD, ROLE, REGISTERDATE, PROFILEPICTURE)
-values (1,0,'test','test','test','test@test.hu','test','USER', current_timestamp(),'');
+values (1,0,'test','test','test','test@test.hu','test','USER', current_timestamp(),'prof1.jpg');
 
 insert into POSTS (ID, VERSION, TITLE, USERID, VISIBILITY, LIKES, TEXT, DATE)
 values (0, 0,'first', 1, true, 0, 'first...first...first...first...first...first...first...' ||

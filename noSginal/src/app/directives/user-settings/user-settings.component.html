@@ -34,7 +34,11 @@
 
     <div class="form-control">
       <mat-form-field>
-        <input matInput placeholder="Profile picture" formControlName="profilepicture">
+        <mat-select placeholder="Profile picture" formControlName="profilepicture">
+          <mat-option *ngFor="let picture of pictures" [value]="picture.value">
+            {{ picture.viewValue }}
+          </mat-option>
+        </mat-select>
         <mat-error *ngIf="profilepicture.hasError('required')">
           Profile picture is <strong>required</strong>
         </mat-error>
@@ -44,6 +48,12 @@
     <mat-error *ngIf="this.hasError" id="registerError">
       <strong>Invalid data or passwords are different!</strong>
     </mat-error>
+
+    <div class = "pictures">
+      <img mat-card-image *ngIf = "profilepicture.value == pictures[0].value" src = "assets/img/prof1.jpg" class = "profilePicture">
+      <img mat-card-image *ngIf = "profilepicture.value == pictures[1].value" image src = "assets/img/prof2.png" class = "profilePicture">
+      <img mat-card-image *ngIf = "profilepicture.value == pictures[2].value" src = "assets/img/prof3.png" class = "profilePicture">
+    </div>
 
     <button mat-raised-button class="mat-primary" (click)="submit()" [disabled]="!settingsForm.valid">Save</button>
     <button mat-raised-button class="mat-accent" (click)="changePwd()">Change Password</button>

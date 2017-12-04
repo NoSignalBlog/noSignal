@@ -21,3 +21,14 @@
 mat-error {
   padding: 2%;
 }
+
+.profilePicture {
+  height: 150px;
+  padding: 30px;
+}
+
+.pictures {
+  margin: auto;
+  flex-direction: row;
+  align-items: center;
+}

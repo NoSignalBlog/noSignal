@@ -15,12 +15,18 @@ export class UserSettingsComponent implements OnInit {
 
   hasError: boolean = false;
 
+  pictures = [
+    {value: 'prof1.jpg', viewValue: 'Prof 1'},
+    {value: 'prof2.png', viewValue: 'Prof 2'},
+    {value: 'prof3.png', viewValue: 'Prof 3'}
+  ];
+
   constructor(private authService: AuthService, private router: Router) {
       this.settingsForm = new FormGroup({
         lastname: new FormControl(this.authService.user.lastname, [Validators.required]),
         firstname: new FormControl(this.authService.user.firstname, [Validators.required]),
         email: new FormControl(this.authService.user.email, [Validators.required, Validators.email]),
-        profilepicture: new FormControl(this.authService.user.profilepicture, [])
+        profilepicture: new FormControl(this.authService.user.profilepicture, [Validators.required])
       });
   }
 
@@ -37,14 +43,6 @@ export class UserSettingsComponent implements OnInit {
 
   changePwd() {
     this.router.navigate(['/changePwd']);
-  }
-
-  get password(): AbstractControl {
-    return this.settingsForm.get('password');
-  }
-
-  get passwordVerify(): AbstractControl {
-    return this.settingsForm.get('passwordVerify');
   }
 
   get lastname(): AbstractControl {

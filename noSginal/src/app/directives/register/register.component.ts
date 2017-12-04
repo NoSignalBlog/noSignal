@@ -19,8 +19,15 @@ export class RegisterComponent implements OnInit {
     lastname: new FormControl('', [Validators.required]),
     firstname: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
-    profilePicture: new FormControl('', [Validators.required])
+    profilepicture: new FormControl('', [Validators.required])
   });
+
+  pictures = [
+    {value: 'prof1.jpg', viewValue: 'Prof 1'},
+    {value: 'prof2.png', viewValue: 'Prof 2'},
+    {value: 'prof3.png', viewValue: 'Prof 3'}
+  ];
+
   hasError: boolean = false;
 
   constructor(private authService: AuthService, private router: Router) {
@@ -32,7 +39,7 @@ export class RegisterComponent implements OnInit {
     this.hasError = this.password.value != this.passwordVerify.value;
     if (!this.hasError) {
       this.authService.register(new User(this.username.value, this.password.value, this.lastname.value, this.firstname.value,
-        this.email.value, this.profilePicture.value))
+        this.email.value, this.profilepicture.value))
         .subscribe(
           res => this.router.navigate(['/login']),
           err => this.hasError = true)
@@ -63,7 +70,7 @@ export class RegisterComponent implements OnInit {
     return this.registerForm.get('email');
   }
 
-  get profilePicture(): AbstractControl {
-    return this.registerForm.get('profilePicture');
+  get profilepicture(): AbstractControl {
+    return this.registerForm.get('profilepicture');
   }
 }
