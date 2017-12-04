@@ -9,6 +9,7 @@ export class Routes {
   static LIKES: String = "posts/like";
   static CHECK_PASSWORD = "usr/check";
   static CHANGE_PASSWORD = "usr/changePwd"
+  static EDITPOST = "posts/edit";
 }
 
 export class Server {

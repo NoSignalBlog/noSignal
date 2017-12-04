@@ -29,6 +29,7 @@ import { LikeButtonComponent } from './directives/like-button/like-button.compon
 import { UserSettingsComponent } from './directives/user-settings/user-settings.component';
 import { PasswordChangeComponent } from './directives/password-change/password-change.component';
 import { WelcomeComponent } from './directives/welcome/welcome.component';
+import { EditPostComponent } from './directives/edit-post/edit-post.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { WelcomeComponent } from './directives/welcome/welcome.component';
     LikeButtonComponent,
     UserSettingsComponent,
     PasswordChangeComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    EditPostComponent
   ],
   imports: [
     BrowserModule,

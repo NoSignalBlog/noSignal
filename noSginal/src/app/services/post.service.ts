@@ -8,6 +8,8 @@ import "rxjs/add/operator/map";
 @Injectable()
 export class PostService {
 
+  postToEdit : Post;
+
   constructor(private http: Http) {
   }
 
@@ -26,6 +28,15 @@ export class PostService {
   like(post: Post) {
     return this.http.post(Server.routeTo(Routes.LIKES), post);
   }
+
+
+  modify(): Observable<Post> {
+    //console.log(post);
+    return this.http.put(Server.routeTo(Routes.EDITPOST + '/' + this.postToEdit.id ), this.postToEdit).map(
+      res => res.json()
+    );
+  }
+
 
   /*create(issue: Post): Observable<Post> {
     return this.http.post(Server.routeTo(Routes.POSTS), issue)
