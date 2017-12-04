@@ -15,7 +15,7 @@ export class NewPostComponent implements OnInit {
   newPostForm: FormGroup = new FormGroup({
     title: new FormControl('', [Validators.required]),
     text: new FormControl('', [Validators.required]),
-    checked: new FormControl('', [Validators.required])
+    checked: new FormControl('', [])
   });
   hasError: boolean = false;
 

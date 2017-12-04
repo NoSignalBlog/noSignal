@@ -3,7 +3,7 @@ import {Timestamp} from "rxjs/Rx";
 import {AuthService} from "../services/auth.service";
 
 export class Post {
-  id: number;
+  id: Number;
   user: User;
   title: String;
   userid: Number;
@@ -15,15 +15,15 @@ export class Post {
   links: String;
   //messages: String[];
 
-  constructor( id?: number, user?: User, title?: String, visibility?: boolean, likes?: number, text?: String,
-               links?: String,videos?: String,) {
+  constructor( id?: Number, title?: String, visibility?: boolean, text?: String, likes?: number,
+               user?: User, links?: String,videos?: String,) {
     this.links = links;
     this.videos = videos;
     this.text = text;
     this.likes = likes || 0;
-    this.visibility = visibility;
+    this.visibility = visibility || false;
     this.title = title;
-    this.id = id || 0;
+    this.id = id || null;
     //this.userid = userid;
   }
 }

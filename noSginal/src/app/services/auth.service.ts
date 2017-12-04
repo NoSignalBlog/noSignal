@@ -11,7 +11,6 @@ export class AuthService {
 
   user: User;
   isLoggedIn: boolean = false;
-  isAdmin: boolean = false;
   userid : Number;
 
   constructor(private http: Http) {
