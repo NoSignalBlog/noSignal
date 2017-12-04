@@ -25,3 +25,18 @@ mat-error {
 button {
   margin-top: 1%;
 }
+
+img {
+  width: 150px;
+}
+
+.profilePicture {
+  height: 150px;
+  padding: 30px;
+}
+
+.pictures {
+  margin: auto;
+  flex-direction: row;
+  align-items: center;
+}

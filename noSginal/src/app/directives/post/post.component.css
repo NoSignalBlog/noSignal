@@ -12,3 +12,8 @@
   padding-top: 3%;
   font-style: italic;
 }
+
+.profilePicture {
+  margin-left: 2%;
+  display: block;
+}
