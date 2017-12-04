@@ -5,6 +5,8 @@ import "rxjs/add/observable/of";
 import {Post} from "../../model/Post";
 import {PostService} from "../../services/post.service";
 import {AuthService} from "../../services/auth.service";
+import {Role} from "../../model/User";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-post',
@@ -15,7 +17,7 @@ export class PostComponent {
 
   posts: Array<Post>;
 
-  constructor(private authService: AuthService, private postService: PostService) {
+  constructor(private authService: AuthService, private postService: PostService, private router: Router) {
     this.postService.getPosts().subscribe(
       val => this.posts = val);
   }
@@ -38,6 +40,17 @@ export class PostComponent {
       err => console.log(err)
     );
   }
+
+  edit(post: Post) {
+    this.postService.postToEdit = post;
+    this.router.navigate(['/editpost']);
+  }
+
+  checkUser(post: Post) : boolean {
+    return (this.authService.user.username == post.user.username || this.authService.user.role == "ADMIN");
+  }
+
+
 }
 
   /*export class PostDataSource extends DataSource<any> {

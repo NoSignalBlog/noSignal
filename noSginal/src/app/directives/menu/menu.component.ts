@@ -17,7 +17,6 @@ export class MenuComponent implements OnInit {
   private common: MenuItem[] = [
     {link: '/posts', title: 'Main'},
     {link: '/newpost', title: 'New Post'},
-    {link: '/editpost', title: 'Edit Post'},
     {link: '/dashboard', title: 'Dashboard'},
     {link: '/settings', title: 'Settings'}
   ];
@@ -26,7 +25,6 @@ export class MenuComponent implements OnInit {
     [Role.GUEST, [{link: '/posts', title: 'Main'}]],
     [Role.USER, [{link: '/posts', title: 'Main'},
       {link: '/newpost', title: 'New Post'},
-      {link: '/editpost', title: 'Edit Post'},
       {link: '/settings', title: 'Settings'}]],
     [Role.ADMIN, [...this.common]]
   ]);

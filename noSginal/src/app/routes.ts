@@ -8,12 +8,14 @@ import {PostComponent} from "./directives/post/post.component";
 import {NewPostComponent} from "./directives/new-post/new-post.component";
 import {UserSettingsComponent} from "./directives/user-settings/user-settings.component";
 import {PasswordChangeComponent} from "./directives/password-change/password-change.component";
+import {EditPostComponent} from "./directives/edit-post/edit-post.component";
 
 export const appRoutes: Routes = [
   {
     path: '',
     canActivateChild: [RouteGuard],
     children: [
+      {path: 'editpost', component: EditPostComponent, data: {roles: [Role.USER, Role.ADMIN]}},
       {path: 'settings', component: UserSettingsComponent, data: {roles: [Role.USER, Role.ADMIN]}},
       {path: 'changePwd', component: PasswordChangeComponent, data: {roles: [Role.USER, Role.ADMIN]}},
       {path: 'newpost', component: NewPostComponent, data: {roles: [Role.USER, Role.ADMIN]}},

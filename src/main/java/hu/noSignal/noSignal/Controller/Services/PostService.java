@@ -78,6 +78,7 @@ public class PostService {
             postToEdit.setDate(post.getDate());
             postToEdit.setVideos(post.getVideos());
             postToEdit.setLinks(post.getLinks());
+            postToEdit.setVisibility(post.isVisibility());
             postRepository.save(postToEdit);
             return postToEdit;
         } else {
