@@ -18,7 +18,7 @@ import {map} from 'rxjs/operators/map';
 
 export class SearchUserComponent implements OnInit {
   stateCtrl: FormControl;
-  filteredUsers: Observable<any[]>;
+  filteredUsers: Observable<User[]>;
   users: Array<User>
 
   constructor(private authService: AuthService, private postService: PostService, private router: Router) {
@@ -26,14 +26,13 @@ export class SearchUserComponent implements OnInit {
     this.filteredUsers = this.stateCtrl.valueChanges
       .pipe(
         startWith(''),
-        map(state => state ? this.filterStates(state.value) : this.states.slice())
+        map(user =>  this.users.slice())
       );
-
-    this.authService.getUsers().subscribe(
-      val => this.users = val);
   }
 
   ngOnInit() {
+    this.authService.getUsers().subscribe(
+      val => this.users = val);
   }
 
   filterStates(name: string) {

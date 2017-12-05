@@ -19,5 +19,5 @@
 
     <app-welcome></app-welcome>
   </div>
-  <app-search-user></app-search-user>
+  <app-search-user *ngIf="authService.isLoggedIn"></app-search-user>
 </mat-toolbar>
