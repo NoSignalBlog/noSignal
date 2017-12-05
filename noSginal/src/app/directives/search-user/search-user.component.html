@@ -1,0 +1,12 @@
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="State" aria-label="State" [matAutocomplete]="auto" [formControl]="stateCtrl">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let user of users | async" [value]="user.username">
+        <img style="vertical-align:middle;" aria-hidden src="{{user.profilepicture}}" height="25" />
+        <span>{{ user.username }}</span> |
+        <small>Population: {{user.lastname}}</small>
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
