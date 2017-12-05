@@ -4,6 +4,7 @@ import {Role, User} from "../model/User";
 import {Routes, Server} from "../utils/Routes";
 import 'rxjs/Rx';
 import {Post} from "../model/Post";
+import {Observable} from "rxjs/Observable";
 
 
 @Injectable()
@@ -12,6 +13,7 @@ export class AuthService {
   user: User;
   isLoggedIn: boolean = false;
   userid : Number;
+  queryUserId: Number;
 
   constructor(private http: Http) {
     this.user = new User();
@@ -54,4 +56,11 @@ export class AuthService {
   changePassword(user: User) {
     return this.http.put(Server.routeTo(Routes.CHANGE_PASSWORD), user);
   }
+
+  getUsers(): Observable<User[]> {
+    return this.http.get(Server.routeTo(Routes.USERS))
+      .map(res => res.json())
+  }
+
+
 }

@@ -8,6 +8,16 @@
   font-size: larger;
 }
 
+.subTitle:hover {
+  color: #8B008B;
+  transition: 1s;
+}
+
+.subTitle {
+  transition: 1s;
+  text-decoration: underline;
+}
+
 #likes {
   padding-top: 3%;
   font-style: italic;

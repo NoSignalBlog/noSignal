@@ -10,6 +10,7 @@ export class Routes {
   static CHECK_PASSWORD = "usr/check";
   static CHANGE_PASSWORD = "usr/changePwd"
   static EDITPOST = "posts/edit";
+  static USERS: String = 'usr';
 }
 
 export class Server {
