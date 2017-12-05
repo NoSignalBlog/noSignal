@@ -3,7 +3,7 @@ import {AbstractControl, FormControl, FormGroup, Validators} from "@angular/form
 import {AuthService} from "../../services/auth.service";
 import {Router} from "@angular/router";
 import {PostService} from "../../services/post.service";
-import {Post} from "../../model/Post";
+import {MatDialog} from "@angular/material";
 
 @Component({
   selector: 'app-edit-post',
@@ -13,6 +13,7 @@ import {Post} from "../../model/Post";
 export class EditPostComponent implements OnInit {
   editPostForm: FormGroup;
   hasError: boolean = false;
+  selectForDelete: boolean = false;
 
   constructor(private authService: AuthService, private router: Router, private postService: PostService) {
     if ( this.postService.postToEdit == null ) {
@@ -29,7 +30,6 @@ export class EditPostComponent implements OnInit {
   ngOnInit() {}
 
   submit() {
-    //console.log(this.authService);
     this.postService.postToEdit.title = this.title.value;
     this.postService.postToEdit.text = this.text.value;
     this.postService.postToEdit.visibility = this.checked.value;
@@ -37,6 +37,18 @@ export class EditPostComponent implements OnInit {
       .subscribe(
         res => this.router.navigate(['/posts']),
         err => this.hasError = true)
+  }
+
+  delete() {
+    this.selectForDelete = !this.selectForDelete;
+  }
+
+  deletePost() {
+    this.postService.delete()
+      .subscribe(
+        res => this.router.navigate(['/posts']),
+        err => this.hasError = true
+      );
   }
 
   get title(): AbstractControl {

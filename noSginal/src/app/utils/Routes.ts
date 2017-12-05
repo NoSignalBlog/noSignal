@@ -7,9 +7,10 @@ export class Routes {
   static POSTS: String = 'posts';
   static NEWPOST: String = 'posts/new';
   static LIKES: String = "posts/like";
-  static CHECK_PASSWORD = "usr/check";
-  static CHANGE_PASSWORD = "usr/changePwd"
-  static EDITPOST = "posts/edit";
+  static CHECK_PASSWORD: String = "usr/check";
+  static CHANGE_PASSWORD: String = "usr/changePwd"
+  static EDITPOST: String = "posts/edit";
+  static DELETEPOST: String = "posts/delete";
 }
 
 export class Server {

@@ -13,3 +13,14 @@
 #postError {
   padding: 20px;
 }
+
+button {
+  display: block;
+  margin: 1% auto 1% auto;
+}
+
+.deleteVerify {
+  margin-top: 2%;
+  flex-direction: column;
+  align-items: center;
+}
