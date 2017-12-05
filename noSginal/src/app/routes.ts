@@ -9,12 +9,14 @@ import {NewPostComponent} from "./directives/new-post/new-post.component";
 import {UserSettingsComponent} from "./directives/user-settings/user-settings.component";
 import {PasswordChangeComponent} from "./directives/password-change/password-change.component";
 import {EditPostComponent} from "./directives/edit-post/edit-post.component";
+import {UserPageComponent} from "./directives/user-page/user-page.component";
 
 export const appRoutes: Routes = [
   {
     path: '',
     canActivateChild: [RouteGuard],
     children: [
+      {path: 'users', component: UserPageComponent, data: {roles: [Role.USER, Role.ADMIN]}},
       {path: 'editpost', component: EditPostComponent, data: {roles: [Role.USER, Role.ADMIN]}},
       {path: 'settings', component: UserSettingsComponent, data: {roles: [Role.USER, Role.ADMIN]}},
       {path: 'changePwd', component: PasswordChangeComponent, data: {roles: [Role.USER, Role.ADMIN]}},
