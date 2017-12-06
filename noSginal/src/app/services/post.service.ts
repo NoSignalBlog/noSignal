@@ -32,12 +32,18 @@ export class PostService {
 
   modify(): Observable<Post> {
     //console.log(post);
-    return this.http.put(Server.routeTo(Routes.EDITPOST + '/' + this.postToEdit.id ), this.postToEdit).map(
-      res => res.json()
+    return this.http.put(Server.routeTo(Routes.EDITPOST + '/' + this.postToEdit.id ), this.postToEdit)
+      .map(
+        res => res.json()
     );
   }
 
-
+  delete(): Observable<Post> {
+    return this.http.delete(Server.routeTo(Routes.DELETEPOST + '/' + this.postToEdit.id))
+      .map(
+        res => res.json()
+      );
+  }
   /*create(issue: Post): Observable<Post> {
     return this.http.post(Server.routeTo(Routes.POSTS), issue)
       .map(res => res.json())
