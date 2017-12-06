@@ -9,6 +9,7 @@ import {Role} from "../../model/User";
 import {Router} from "@angular/router";
 import {SignalCommentService} from "../../services/comment.service";
 import {CommentComponent} from "../comment/comment.component";
+import {SignalComment} from "../../model/Comment";
 
 @Component({
   selector: 'app-post',
@@ -18,13 +19,15 @@ import {CommentComponent} from "../comment/comment.component";
 export class PostComponent {
 
   posts: Array<Post>;
-  comments: Array<Comment>;
+  comments: Array<SignalComment>;
 
 
   constructor(private authService: AuthService, private postService: PostService, private router: Router,
               private signalCommentService: SignalCommentService) {
     this.postService.getPosts().subscribe(
       val => this.posts = val);
+    this.signalCommentService.getComments().subscribe(
+      val => this.comments = val);
   }
 
   /*delete(id: number) {
