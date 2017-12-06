@@ -1,0 +1,37 @@
+.user-card {
+  margin: 0;
+  width: 100%;
+  padding: 3%;
+}
+
+.username {
+  font-size: 2em;
+}
+
+.profilePicture {
+  margin-left: 2%;
+  display: block;
+}
+
+.user-content {
+  margin: 3% auto 5% auto;
+}
+
+
+.post-card {
+  margin: 3% auto 5% auto;
+  width: 70%;
+  padding: 3%;
+}
+
+.title {
+  font-size: larger;
+}
+
+
+#likes {
+  padding-top: 3%;
+  font-style: italic;
+}
+
+

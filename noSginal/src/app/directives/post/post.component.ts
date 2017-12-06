@@ -50,6 +50,11 @@ export class PostComponent {
     return (this.authService.user.username == post.user.username || this.authService.user.role == "ADMIN");
   }
 
+  saveUserId(post: Post) {
+    this.authService.queryUserId = post.userid;
+    this.router.navigate(['/users']);
+  }
+
 
 }
 

@@ -1,0 +1,12 @@
+<form class="search-form">
+  <mat-form-field class="search-full-width">
+    <input matInput placeholder="Search User" [matAutocomplete]="auto" [formControl]="searchCtrl">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let user of filteredUsers | async" [value]="user.username" (click)="search(user)">
+        <img style="vertical-align:middle;" aria-hidden src="assets/img/{{user.profilepicture}}" height="25" />
+        <span>{{ user.username }}</span> |
+        <small>Name: {{user.firstname}} {{user.lastname}}</small>
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
