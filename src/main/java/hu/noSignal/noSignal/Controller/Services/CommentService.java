@@ -58,5 +58,9 @@ public class CommentService {
         }
         return byPostId;
     }
+
+    public Iterable<Comment> getAllComments(Comment comment) {
+        return listAll();
+    }
 }
 

@@ -86,9 +86,16 @@ public class PostController {
     }
 
     @Role({USER,ADMIN})
-    @PostMapping("/getcomments/{id}")
+    @GetMapping("/getcomments/{id}")
     private ResponseEntity<Iterable<Comment>> getComments(@PathVariable long id,@RequestBody Comment comment) {
         return ResponseEntity.ok(commentService.getComments(id,comment));
+    }
+
+
+    @Role({USER,ADMIN})
+    @GetMapping("/getcomments")
+    private ResponseEntity<Iterable<Comment>> getAllComments(@RequestBody Comment comment) {
+        return ResponseEntity.ok(commentService.getAllComments(comment));
     }
 
 
