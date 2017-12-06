@@ -47,7 +47,7 @@ public class CommentService {
     }
 
 
-    public Iterable<Comment> getComments(long id, Comment comment){
+    public Iterable<Comment> getCommentsByPost(long id, Comment comment){
         Iterator<Comment> iter = listAll().iterator();
         Iterable<Comment> byPostId = new ArrayList<>();
         while (iter.hasNext()) {
@@ -57,10 +57,6 @@ public class CommentService {
             }
         }
         return byPostId;
-    }
-
-    public Iterable<Comment> getAllComments(Comment comment) {
-        return listAll();
     }
 }
 

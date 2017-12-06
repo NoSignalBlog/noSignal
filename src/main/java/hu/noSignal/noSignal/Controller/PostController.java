@@ -87,15 +87,15 @@ public class PostController {
 
     @Role({USER,ADMIN})
     @GetMapping("/getcomments/{id}")
-    private ResponseEntity<Iterable<Comment>> getComments(@PathVariable long id,@RequestBody Comment comment) {
-        return ResponseEntity.ok(commentService.getComments(id,comment));
+    private ResponseEntity<Iterable<Comment>> getCommentsByPost(@PathVariable long id,@RequestBody Comment comment) {
+        return ResponseEntity.ok(commentService.getCommentsByPost(id,comment));
     }
 
 
     @Role({USER,ADMIN})
     @GetMapping("/getcomments")
-    private ResponseEntity<Iterable<Comment>> getAllComments(@RequestBody Comment comment) {
-        return ResponseEntity.ok(commentService.getAllComments(comment));
+    private ResponseEntity<Iterable<Comment>> getAllComments() {
+        return ResponseEntity.ok(commentService.listAll());
     }
 
 

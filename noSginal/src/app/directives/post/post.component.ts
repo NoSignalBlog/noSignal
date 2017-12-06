@@ -65,6 +65,7 @@ export class PostComponent {
 
 
   signalComment(post: Post) {
+    this.postService.postToCommentOn = post;
     this.postService.showCommentSection = true;
     //this.postService.postToComment = post;
     //this.router.navigate(['/comment']);

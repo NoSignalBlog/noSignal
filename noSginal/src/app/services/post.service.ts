@@ -9,6 +9,7 @@ import "rxjs/add/operator/map";
 export class PostService {
 
   postToEdit : Post;
+  postToCommentOn : Post;
   showCommentSection: boolean = false;
 
   constructor(private http: Http) {
