@@ -16,6 +16,7 @@ import {Router} from "@angular/router";
 export class PostComponent {
 
   posts: Array<Post>;
+  showCommentSection: boolean = false;
 
   constructor(private authService: AuthService, private postService: PostService, private router: Router) {
     this.postService.getPosts().subscribe(
@@ -53,6 +54,12 @@ export class PostComponent {
   saveUserId(post: Post) {
     this.authService.queryUserId = post.userid;
     this.router.navigate(['/users']);
+  }
+
+
+  signalComment(post: Post) {
+    this.showCommentSection = true;
+    //this.router.navigate(['/comment']);
   }
 
 

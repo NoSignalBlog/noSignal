@@ -19,6 +19,8 @@
     <mat-card-actions *ngIf = "authService.isLoggedIn">
       <button mat-button (click)="like(post)">Like</button>
       <button *ngIf="checkUser(post)" mat-button (click)="edit(post)">Edit</button>
+      <button mat-button (click)="signalComment(post)">Comment</button>
+      <app-comment *ngIf="showCommentSection"></app-comment>
     </mat-card-actions>
   </mat-card>
 </div>

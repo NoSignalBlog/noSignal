@@ -10,6 +10,7 @@ import {UserSettingsComponent} from "./directives/user-settings/user-settings.co
 import {PasswordChangeComponent} from "./directives/password-change/password-change.component";
 import {EditPostComponent} from "./directives/edit-post/edit-post.component";
 import {UserPageComponent} from "./directives/user-page/user-page.component";
+import {CommentComponent} from "./directives/comment/comment.component";
 
 export const appRoutes: Routes = [
   {

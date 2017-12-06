@@ -33,6 +33,8 @@ import { EditPostComponent } from './directives/edit-post/edit-post.component';
 import { UserPageComponent } from './directives/user-page/user-page.component';
 import { SearchUserComponent } from './directives/search-user/search-user.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { CommentComponent } from './directives/comment/comment.component';
+import {SignalCommentService} from "./services/comment.service";
 
 @NgModule({
   declarations: [
@@ -49,7 +51,8 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     WelcomeComponent,
     EditPostComponent,
     UserPageComponent,
-    SearchUserComponent
+    SearchUserComponent,
+    CommentComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +70,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     MatToolbarModule,
     MatAutocompleteModule
   ],
-  providers: [AuthService, RouteGuard, PostService],
+  providers: [AuthService, RouteGuard, PostService, SignalCommentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
