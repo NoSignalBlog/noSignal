@@ -17,6 +17,7 @@ export class SignalCommentService {
   // }
 
   create(comment: SignalComment): Observable<Comment> {
+    console.log(comment);
     return this.http.post(Server.routeTo(Routes.NEWCOMMENT), comment).map(
       res => res.json()
     );

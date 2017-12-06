@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.annotation.SessionScope;
 
+import java.sql.Timestamp;
+
 @Service
 @SessionScope
 @Data
@@ -25,7 +27,8 @@ public class CommentService {
         if (postRepository.findOne(comment.getPostid()) == null) {
             throw new CommentException();
         }
-
+        comment.setDate(new Timestamp(System.currentTimeMillis()));
+        System.out.println(comment);
         commentRepository.save(comment);
         return comment;
     }

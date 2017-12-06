@@ -59,8 +59,18 @@ export class PostComponent {
 
   signalComment(post: Post) {
     this.showCommentSection = true;
+    //this.postService.postToComment = post;
     //this.router.navigate(['/comment']);
   }
+
+  // checkPost(post: Post) {
+  //   return (this.postService.postToComment.date = post.date);
+  // }
+
+
+
+
+
 
 
 }

@@ -3,7 +3,7 @@
   <form [formGroup]="newCommentForm" class="new-commment-form" novalidate>
     <div class="form-control">
       <mat-form-field>
-        <textarea matInput placeholder="comment" formControlName="comment" matTextareaAutosize matAutosizeMinRows="2"
+        <textarea matInput placeholder="comment" formControlName="text" matTextareaAutosize matAutosizeMinRows="2"
                   matAutosizeMaxRows="5">
         <mat-error *ngIf="comment.hasError('required')">
           Some text is <strong>required</strong>
