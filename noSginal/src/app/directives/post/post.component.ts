@@ -18,9 +18,11 @@ import {CommentComponent} from "../comment/comment.component";
 export class PostComponent {
 
   posts: Array<Post>;
+  comments: Array<Comment>;
 
 
-  constructor(private authService: AuthService, private postService: PostService, private router: Router) {
+  constructor(private authService: AuthService, private postService: PostService, private router: Router,
+              private signalCommentService: SignalCommentService) {
     this.postService.getPosts().subscribe(
       val => this.posts = val);
   }

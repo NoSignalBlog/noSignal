@@ -22,47 +22,6 @@ export class UserPageComponent {
       val => this.posts = val);
   }
 
-  /*delete(id: number) {
-    this.postService.delete(id)
-      .subscribe(
-        res => console.log(res),
-        err => console.log(err)
-      );
-  }*/
-
-  /*toDate(timestamp: number): Date {
-    return new Date(timestamp)
-  }*/
-
-  // like(post: Post) {
-  //   this.postService.like(post).subscribe(
-  //     res => post.likes = res.json().likes,
-  //     err => console.log(err)
-  //   );
-  // }
-  //
-  // edit(post: Post) {
-  //   this.postService.postToEdit = post;
-  //   this.router.navigate(['/editpost']);
-  // }
-  //
-  // checkUser(post: Post) : boolean {
-  //   return (this.authService.user.username == post.user.username || this.authService.user.role == "ADMIN");
-  // }
-
-
 }
 
-/*export class PostDataSource extends DataSource<any> {
-constructor(private postService: PostService) {
-  super();
-}
 
-connect(): Observable<Post[]> {
-  return this.postService.getPosts();
-}
-
-disconnect() {
-}*/
-
-//}

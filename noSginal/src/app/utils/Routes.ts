@@ -13,6 +13,7 @@ export class Routes {
   static DELETEPOST: String = "posts/delete";
   static USERS: String = 'usr';
   static NEWCOMMENT: String = 'posts/comment';
+  static GETCOMMENTS: String = 'posts/getcomments';
 }
 
 export class Server {

@@ -11,9 +11,9 @@ export class SignalCommentService {
   constructor(private http: Http) {
   }
 
-  // getComment(): Observable<SignalComment[]> {
-  //   return this.http.get(Server.routeTo(Routes.COMMENTS))
-  //     .map(res => res.json())
+  // getComments(): Observable<SignalComment[]> {
+  //    return this.http.get(Server.routeTo(Routes.GETCOMMENTS)+ '/' + this.postToEdit.id ), this.postToEdit)
+  //      .map(res => res.json())
   // }
 
   create(comment: SignalComment): Observable<Comment> {
