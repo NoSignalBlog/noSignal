@@ -20,7 +20,10 @@
       <button mat-button (click)="like(post)">Like</button>
       <button *ngIf="checkUser(post)" mat-button (click)="edit(post)">Edit</button>
       <button mat-button (click)="signalComment(post)">Comment</button>
-      <app-comment *ngIf="showCommentSection"></app-comment>
+      <app-comment *ngIf="checkCommentSection()"></app-comment>
     </mat-card-actions>
+    <mat-card-footer>
+      <!--TODO: comments goes here-->
+    </mat-card-footer>
   </mat-card>
 </div>

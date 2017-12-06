@@ -7,6 +7,8 @@ import {PostService} from "../../services/post.service";
 import {AuthService} from "../../services/auth.service";
 import {Role} from "../../model/User";
 import {Router} from "@angular/router";
+import {SignalCommentService} from "../../services/comment.service";
+import {CommentComponent} from "../comment/comment.component";
 
 @Component({
   selector: 'app-post',
@@ -16,7 +18,7 @@ import {Router} from "@angular/router";
 export class PostComponent {
 
   posts: Array<Post>;
-  showCommentSection: boolean = false;
+
 
   constructor(private authService: AuthService, private postService: PostService, private router: Router) {
     this.postService.getPosts().subscribe(
@@ -58,14 +60,18 @@ export class PostComponent {
 
 
   signalComment(post: Post) {
-    this.showCommentSection = true;
+    this.postService.showCommentSection = true;
     //this.postService.postToComment = post;
     //this.router.navigate(['/comment']);
   }
 
-  // checkPost(post: Post) {
-  //   return (this.postService.postToComment.date = post.date);
-  // }
+  checkCommentSection() : boolean {
+    return this.postService.showCommentSection;
+  }
+
+   // checkPost(text: String) {
+   //   return (this.postService.postToComment.text = text);
+   // }
 
 
 

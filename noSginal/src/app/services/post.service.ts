@@ -9,7 +9,7 @@ import "rxjs/add/operator/map";
 export class PostService {
 
   postToEdit : Post;
-  postToCommentId: Number;
+  showCommentSection: boolean = false;
 
   constructor(private http: Http) {
   }
