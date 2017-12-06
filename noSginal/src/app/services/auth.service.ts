@@ -14,6 +14,7 @@ export class AuthService {
   isLoggedIn: boolean = false;
   userid : Number;
   queryUserId: Number;
+  users: User[];
 
   constructor(private http: Http) {
     this.user = new User();
@@ -29,7 +30,7 @@ export class AuthService {
         this.isLoggedIn = true;
         this.user = res.json();
         this.userid = this.user.id;
-        console.log(this.user);
+        this.getUsers().subscribe(val => this.users = val);
         return this.user;
       })
   }

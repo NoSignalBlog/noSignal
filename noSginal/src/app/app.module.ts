@@ -31,6 +31,8 @@ import { PasswordChangeComponent } from './directives/password-change/password-c
 import { WelcomeComponent } from './directives/welcome/welcome.component';
 import { EditPostComponent } from './directives/edit-post/edit-post.component';
 import { UserPageComponent } from './directives/user-page/user-page.component';
+import { SearchUserComponent } from './directives/search-user/search-user.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,8 @@ import { UserPageComponent } from './directives/user-page/user-page.component';
     PasswordChangeComponent,
     WelcomeComponent,
     EditPostComponent,
-    UserPageComponent
+    UserPageComponent,
+    SearchUserComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +64,8 @@ import { UserPageComponent } from './directives/user-page/user-page.component';
     MatSlideToggleModule,
     MatButtonModule,
     MatIconModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatAutocompleteModule
   ],
   providers: [AuthService, RouteGuard, PostService],
   bootstrap: [AppComponent]
