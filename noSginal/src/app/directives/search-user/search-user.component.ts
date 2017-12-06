@@ -14,33 +14,36 @@ import {map} from 'rxjs/operators/map';
   styleUrls: ['./search-user.component.css']
 })
 
-
-
 export class SearchUserComponent implements OnInit {
-  stateCtrl: FormControl;
+  searchCtrl: FormControl;
   filteredUsers: Observable<User[]>;
-  users: Array<User>
+  users: Array<User>;
 
   constructor(private authService: AuthService, private postService: PostService, private router: Router) {
-    this.stateCtrl = new FormControl();
-    this.filteredUsers = this.stateCtrl.valueChanges
-      .pipe(
-        startWith(''),
-        map(user =>  this.users.slice())
-      );
+    this.users = this.authService.users;
+    this.searchCtrl = new FormControl();
+  }
+
+  filterUsers(username: String): User[] {
+    return this.users.filter(user =>
+      user.username.toLowerCase().indexOf(username.toLowerCase()) === 0);
   }
 
   ngOnInit() {
     this.authService.getUsers().subscribe(
-      val => this.users = val);
+      val =>
+      {
+        this.users = val;
+        this.filteredUsers = this.searchCtrl.valueChanges
+          .pipe(
+            startWith(''),
+            map(user => this.filterUsers(<String>user))
+          );
+      });
   }
 
-  filterStates(name: string) {
-    return this.users.filter(state =>
-      state.username.toLowerCase().indexOf(name.toLowerCase()) === 0);
+  search(user: User) {
+    this.authService.queryUserId = user.id;
+    this.router.navigate(['/users']);
   }
-
-
-
-
 }
