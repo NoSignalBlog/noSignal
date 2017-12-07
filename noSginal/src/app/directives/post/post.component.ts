@@ -30,18 +30,6 @@ export class PostComponent {
       val => this.comments = val);
   }
 
-  /*delete(id: number) {
-    this.postService.delete(id)
-      .subscribe(
-        res => console.log(res),
-        err => console.log(err)
-      );
-  }*/
-
-  /*toDate(timestamp: number): Date {
-    return new Date(timestamp)
-  }*/
-
   like(post: Post) {
     this.postService.like(post).subscribe(
       res => post.likes = res.json().likes,
@@ -67,36 +55,10 @@ export class PostComponent {
   signalComment(post: Post) {
     this.postService.postToCommentOn = post;
     this.postService.showCommentSection = true;
-    //this.postService.postToComment = post;
-    //this.router.navigate(['/comment']);
   }
 
   checkCommentSection() : boolean {
     return this.postService.showCommentSection;
   }
-
-   // checkPost(text: String) {
-   //   return (this.postService.postToComment.text = text);
-   // }
-
-
-
-
-
-
-
 }
 
-  /*export class PostDataSource extends DataSource<any> {
-  constructor(private postService: PostService) {
-    super();
-  }
-
-  connect(): Observable<Post[]> {
-    return this.postService.getPosts();
-  }
-
-  disconnect() {
-  }*/
-
-//}

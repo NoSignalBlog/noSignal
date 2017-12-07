@@ -1,21 +1,6 @@
-<div class="page-body" id="new-comment-page">
-
-  <form [formGroup]="newCommentForm" class="new-commment-form" novalidate>
-    <div class="form-control">
-      <mat-form-field>
-        <textarea matInput placeholder="comment" formControlName="text" matTextareaAutosize matAutosizeMinRows="2"
-                  matAutosizeMaxRows="5">
-        <mat-error *ngIf="comment.hasError('required')">
-          Some text is <strong>required</strong>
-        </mat-error>
-        </textarea>
-      </mat-form-field>
-    </div>
-
-    <mat-error *ngIf="this.hasError" id="commentError">
-      <strong>Invalid comment data!</strong>
-    </mat-error>
-
-    <button mat-raised-button class="mat-primary" (click)="submit()" [disabled]="!newCommentForm.valid">Comment</button>
-  </form>
-</div>
+<form class="new-commment-form" novalidate>
+      <mat-form-field class = "new-comment-form">
+         <input matInput placeholder="Comment..." [formControl]="textCtrl">
+       </mat-form-field>
+       <button mat-button class="mat-primary" (click)="submit(post.id)" [disabled]="!textCtrl.valid">Send</button>
+</form>

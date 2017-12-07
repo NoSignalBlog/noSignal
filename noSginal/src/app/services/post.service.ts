@@ -33,7 +33,6 @@ export class PostService {
 
 
   modify(): Observable<Post> {
-    //console.log(post);
     return this.http.put(Server.routeTo(Routes.EDITPOST + '/' + this.postToEdit.id ), this.postToEdit)
       .map(
         res => res.json()
@@ -46,27 +45,4 @@ export class PostService {
         res => res.json()
       );
   }
-  /*create(issue: Post): Observable<Post> {
-    return this.http.post(Server.routeTo(Routes.POSTS), issue)
-      .map(res => res.json())
-  }
-
-  delete(id: number) {
-    return this.http.delete(Server.routeTo(Routes.POSTS) + '/' + id)
-      .map(res => res.json())
-  }
-
-  read(id: number) {
-    return this.http.get(Server.routeTo(Routes.POSTS) + '/' + id)
-      .map(res => res.json())
-  }
-
-  update(issue: Post) {
-    return this.http.put(Server.routeTo(Routes.POSTS) + '/' + issue.id, issue)
-      .map(res => res.json())
-  }
-
-  sendMessage(id: number, message: String) {
-    return this.http.post(Server.routeTo(Routes.POSTS + '/' + id + '/message'), {message})
-  }*/
 }

@@ -27,3 +27,8 @@
   margin-left: 2%;
   display: block;
 }
+
+hr {
+  margin-bottom: 1%;
+  color: darkblue;
+}

@@ -12,9 +12,7 @@ import {SignalComment} from "../../model/Comment";
   styleUrls: ['./comment.component.css']
 })
 export class CommentComponent implements OnInit {
-  newCommentForm: FormGroup = new FormGroup({
-    text: new FormControl('', [Validators.required]),
-  });
+  textCtrl: FormControl = new FormControl('', [Validators.required]);
   hasError: boolean = false;
 
   constructor(private authService: AuthService, private router: Router, private postService: PostService, private signalCommentService: SignalCommentService) {
@@ -22,16 +20,11 @@ export class CommentComponent implements OnInit {
 
   ngOnInit() {}
 
-  submit() {
+  submit(id: Number) {
     this.postService.showCommentSection = false;
-    this.signalCommentService.create(new SignalComment(this.authService.userid.valueOf(), this.text.value, this.postService.postToCommentOn.id ))
+    this.signalCommentService.create(new SignalComment(this.authService.userid.valueOf(), this.textCtrl.value, id ))
       .subscribe(
         res => this.router.navigate(['/posts']),
         err => this.hasError = true)
   }
-
-  get text(): AbstractControl {
-    return this.newCommentForm.get('text');
-  }
-
 }
