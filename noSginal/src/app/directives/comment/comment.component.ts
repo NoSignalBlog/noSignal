@@ -21,7 +21,7 @@ export class CommentComponent implements OnInit {
   ngOnInit() {}
 
   submit(id: Number) {
-    this.postService.showCommentSection = false;
+    console.log(id);
     this.signalCommentService.create(new SignalComment(this.authService.userid.valueOf(), this.textCtrl.value, id ))
       .subscribe(
         res => this.router.navigate(['/posts']),

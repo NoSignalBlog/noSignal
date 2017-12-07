@@ -1,6 +1,6 @@
 <form class="new-commment-form" novalidate>
       <mat-form-field class = "new-comment-form">
          <input matInput placeholder="Comment..." [formControl]="textCtrl">
-       </mat-form-field>
-       <button mat-button class="mat-primary" (click)="submit(post.id)" [disabled]="!textCtrl.valid">Send</button>
+      </mat-form-field>
+       <button mat-button class="mat-primary" (click)="submit()" [disabled]="!textCtrl.valid">Send</button>
 </form>
