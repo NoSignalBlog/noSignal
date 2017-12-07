@@ -1,15 +1,12 @@
 import {Component} from '@angular/core';
-import {DataSource} from "@angular/cdk/collections";
-import {Observable} from "rxjs/Observable";
 import "rxjs/add/observable/of";
 import {Post} from "../../model/Post";
 import {PostService} from "../../services/post.service";
 import {AuthService} from "../../services/auth.service";
-import {Role} from "../../model/User";
 import {Router} from "@angular/router";
 import {SignalCommentService} from "../../services/comment.service";
-import {CommentComponent} from "../comment/comment.component";
 import {SignalComment} from "../../model/Comment";
+import {FormControl, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-post',
@@ -20,6 +17,8 @@ export class PostComponent {
 
   posts: Array<Post>;
   comments: Array<SignalComment>;
+  textCtrl: FormControl = new FormControl('', [Validators.required]);
+  hasError: boolean = false;
 
 
   constructor(private authService: AuthService, private postService: PostService, private router: Router,
@@ -52,13 +51,22 @@ export class PostComponent {
   }
 
 
-  signalComment(post: Post) {
-    this.postService.postToCommentOn = post;
-    this.postService.showCommentSection = true;
-  }
+  // signalComment(post: Post) {
+  //   this.postService.postToCommentOn = post;
+  //   this.postService.showCommentSection = true;
+  // }
+  //
+  // checkCommentSection() : boolean {
+  //   return this.postService.showCommentSection;
+  // }
 
-  checkCommentSection() : boolean {
-    return this.postService.showCommentSection;
+
+  submit(id: Number) {
+    console.log(id);
+    this.signalCommentService.create(new SignalComment(this.authService.userid.valueOf(), this.textCtrl.value, id ))
+      .subscribe(
+        res => this.router.navigate(['/posts']),
+        err => this.hasError = true)
   }
 }
 

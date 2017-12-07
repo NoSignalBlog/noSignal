@@ -33,7 +33,6 @@ import { EditPostComponent } from './directives/edit-post/edit-post.component';
 import { UserPageComponent } from './directives/user-page/user-page.component';
 import { SearchUserComponent } from './directives/search-user/search-user.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import { CommentComponent } from './directives/comment/comment.component';
 import {SignalCommentService} from "./services/comment.service";
 
 @NgModule({
@@ -51,8 +50,7 @@ import {SignalCommentService} from "./services/comment.service";
     WelcomeComponent,
     EditPostComponent,
     UserPageComponent,
-    SearchUserComponent,
-    CommentComponent
+    SearchUserComponent
   ],
   imports: [
     BrowserModule,
