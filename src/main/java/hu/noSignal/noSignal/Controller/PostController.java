@@ -85,6 +85,20 @@ public class PostController {
         }
     }
 
+    @Role({USER,ADMIN})
+    @GetMapping("/getcomments/{id}")
+    private ResponseEntity<Iterable<Comment>> getCommentsByPost(@PathVariable long id,@RequestBody Comment comment) {
+        return ResponseEntity.ok(commentService.getCommentsByPost(id,comment));
+    }
+
+
+    @Role({USER,ADMIN})
+    @GetMapping("/getcomments")
+    private ResponseEntity<Iterable<Comment>> getAllComments() {
+        return ResponseEntity.ok(commentService.listAll());
+    }
+
+
     @Role({USER, ADMIN})
     @DeleteMapping("/delete/{id}")
     private ResponseEntity<Post> deletePost(@PathVariable long id)  {
@@ -94,7 +108,5 @@ public class PostController {
             return ResponseEntity.badRequest().build();
         }
     }
-
-
 
 }

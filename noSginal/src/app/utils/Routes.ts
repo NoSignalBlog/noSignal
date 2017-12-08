@@ -12,6 +12,8 @@ export class Routes {
   static EDITPOST: String = "posts/edit";
   static DELETEPOST: String = "posts/delete";
   static USERS: String = 'usr';
+  static NEWCOMMENT: String = 'posts/comment';
+  static GETCOMMENTS: String = 'posts/getcomments';
 }
 
 export class Server {

@@ -1,6 +1,5 @@
 import {User} from "./User";
 import {Timestamp} from "rxjs/Rx";
-import {AuthService} from "../services/auth.service";
 
 export class Post {
   id: Number;

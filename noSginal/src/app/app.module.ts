@@ -33,6 +33,7 @@ import { EditPostComponent } from './directives/edit-post/edit-post.component';
 import { UserPageComponent } from './directives/user-page/user-page.component';
 import { SearchUserComponent } from './directives/search-user/search-user.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {SignalCommentService} from "./services/comment.service";
 
 @NgModule({
   declarations: [
@@ -67,7 +68,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
     MatToolbarModule,
     MatAutocompleteModule
   ],
-  providers: [AuthService, RouteGuard, PostService],
+  providers: [AuthService, RouteGuard, PostService, SignalCommentService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
