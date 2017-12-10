@@ -34,6 +34,7 @@ import { UserPageComponent } from './directives/user-page/user-page.component';
 import { SearchUserComponent } from './directives/search-user/search-user.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {SignalCommentService} from "./services/comment.service";
+import { DashboardComponent } from './directives/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import {SignalCommentService} from "./services/comment.service";
     WelcomeComponent,
     EditPostComponent,
     UserPageComponent,
-    SearchUserComponent
+    SearchUserComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

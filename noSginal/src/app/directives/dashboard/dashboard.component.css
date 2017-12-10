@@ -1,0 +1,30 @@
+mat-table {
+  margin: auto;
+  width: 90%;
+  min-width: 500px;
+}
+
+mat-header-cell, .username {
+  font-weight: bold;
+}
+
+mat-header-cell {
+  font-variant: small-caps;
+  font-size: 1.2em;
+}
+
+mat-row:hover {
+  background-color: #212833;
+  color: black;
+  transition: 1s;
+}
+
+mat-row {
+  transition: 1s;
+}
+
+.username {
+  font-style: italic;
+  font-size: 1em;
+}
+

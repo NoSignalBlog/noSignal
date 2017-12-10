@@ -50,17 +50,6 @@ export class PostComponent {
     this.router.navigate(['/users']);
   }
 
-
-  // signalComment(post: Post) {
-  //   this.postService.postToCommentOn = post;
-  //   this.postService.showCommentSection = true;
-  // }
-  //
-  // checkCommentSection() : boolean {
-  //   return this.postService.showCommentSection;
-  // }
-
-
   submit(id: Number) {
     console.log(id);
     this.signalCommentService.create(new SignalComment(this.authService.userid.valueOf(), this.textCtrl.value, id ))
