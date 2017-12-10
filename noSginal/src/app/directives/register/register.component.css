@@ -32,3 +32,8 @@ mat-error {
   flex-direction: row;
   align-items: center;
 }
+
+iframe {
+  margin: auto;
+  display: block;
+}

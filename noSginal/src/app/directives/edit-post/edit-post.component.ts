@@ -22,7 +22,8 @@ export class EditPostComponent implements OnInit {
       this.editPostForm = new FormGroup({
         title: new FormControl(this.postService.postToEdit.title, [Validators.required]),
         text: new FormControl(this.postService.postToEdit.text, [Validators.required]),
-        checked: new FormControl(this.postService.postToEdit.visibility, [])
+        checked: new FormControl(this.postService.postToEdit.visibility, []),
+        videos: new FormControl(this.postService.postToEdit.videos, [])
       });
     }
   }
@@ -33,6 +34,7 @@ export class EditPostComponent implements OnInit {
     this.postService.postToEdit.title = this.title.value;
     this.postService.postToEdit.text = this.text.value;
     this.postService.postToEdit.visibility = this.checked.value;
+    this.postService.postToEdit.videos = this.videos.value;
     this.postService.modify()
       .subscribe(
         res => this.router.navigate(['/posts']),
@@ -63,4 +65,7 @@ export class EditPostComponent implements OnInit {
     return this.editPostForm.get('checked');
   }
 
+  get videos(): AbstractControl {
+    return this.editPostForm.get('videos');
+  }
 }

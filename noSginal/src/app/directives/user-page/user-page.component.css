@@ -34,4 +34,9 @@
   font-style: italic;
 }
 
+iframe {
+  margin: 30px auto 0 auto;
+  display: block;
+}
+
 

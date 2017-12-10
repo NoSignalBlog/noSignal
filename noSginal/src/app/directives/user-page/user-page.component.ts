@@ -4,6 +4,7 @@ import {User} from "../../model/User";
 import {PostService} from "../../services/post.service";
 import {Router} from "@angular/router";
 import {Post} from "../../model/Post";
+import {DomSanitizer} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-user-page',
@@ -15,11 +16,15 @@ export class UserPageComponent {
   users: Array<User>;
   posts: Array<Post>;
 
-  constructor(private authService: AuthService, private postService: PostService, private router: Router) {
+  constructor(private authService: AuthService, private postService: PostService, private router: Router, private sanitizer: DomSanitizer) {
     this.authService.getUsers().subscribe(
       val => this.users = val);
     this.postService.getPosts().subscribe(
       val => this.posts = val);
+  }
+
+  getUrl(post: Post) {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(post.videos.replace("watch?v=","embed/"));
   }
 
 }

@@ -10,12 +10,12 @@ export class Post {
   likes: number;
   text: String;
   date: Timestamp<Number>;
-  videos: String;
+  videos: string;
   links: String;
   //messages: String[];
 
   constructor( id?: Number, title?: String, visibility?: boolean, text?: String, likes?: number,
-               user?: User, links?: String,videos?: String,) {
+               user?: User, videos?: string, links?: String) {
     this.links = links;
     this.videos = videos;
     this.text = text;

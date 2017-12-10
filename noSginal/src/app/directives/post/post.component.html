@@ -14,6 +14,7 @@
     </mat-card-header>
     <mat-card-content class="content">
       <p>{{post.text}}</p>
+      <iframe *ngIf = "post.videos" width="560" height="315" [src]="getUrl(post)" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen ng-show="showvideo"></iframe>
       <p id = "likes">Likes: {{post.likes}}</p>
     </mat-card-content>
     <mat-card-actions *ngIf = "authService.isLoggedIn">
@@ -28,13 +29,9 @@
         </mat-form-field>
         <button mat-button class="mat-primary" (click)="submit(post.id)" [disabled]="!textCtrl.valid">Send</button>
       </form>
-      <!--TODO: comments goes here-->
       <div class="page-body" *ngFor="let comment of comments">
         <mat-card  class="comment-card" *ngIf="comment.postid == post.id">
           <mat-card-header>
-            <!--<div mat-card-avatar>-->
-              <!--<img mat-card-avatar src ="assets/img/{{post.user.profilepicture}}" class = "profilePicture">-->
-            <!--</div>-->
             <mat-card-title class="title">
               {{comment.userid}}
             </mat-card-title>
