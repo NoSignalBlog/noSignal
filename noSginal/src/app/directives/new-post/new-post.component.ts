@@ -15,7 +15,8 @@ export class NewPostComponent implements OnInit {
   newPostForm: FormGroup = new FormGroup({
     title: new FormControl('', [Validators.required]),
     text: new FormControl('', [Validators.required]),
-    checked: new FormControl('', [])
+    checked: new FormControl('', []),
+    video: new FormControl('', [])
   });
   hasError: boolean = false;
 
@@ -26,7 +27,7 @@ export class NewPostComponent implements OnInit {
 
   submit() {
     console.log(this.authService);
-    this.postService.create(new Post(this.authService.userid.valueOf(), this.title.value, this.checked.value, this.text.value ))
+    this.postService.create(new Post(this.authService.userid.valueOf(), this.title.value, this.checked.value, this.text.value, 0, this.authService.user, this.video.value ))
       .subscribe(
         res => this.router.navigate(['/posts']),
         err => this.hasError = true)
@@ -42,6 +43,10 @@ export class NewPostComponent implements OnInit {
 
   get checked(): AbstractControl {
     return this.newPostForm.get('checked');
+  }
+
+  get video(): AbstractControl {
+    return this.newPostForm.get('video');
   }
 }
 

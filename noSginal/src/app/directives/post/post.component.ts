@@ -7,6 +7,7 @@ import {Router} from "@angular/router";
 import {SignalCommentService} from "../../services/comment.service";
 import {SignalComment} from "../../model/Comment";
 import {FormControl, Validators} from "@angular/forms";
+import {DomSanitizer} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-post',
@@ -22,11 +23,15 @@ export class PostComponent {
 
 
   constructor(private authService: AuthService, private postService: PostService, private router: Router,
-              private signalCommentService: SignalCommentService) {
+              private signalCommentService: SignalCommentService, private sanitizer: DomSanitizer) {
     this.postService.getPosts().subscribe(
       val => this.posts = val);
     this.signalCommentService.getComments().subscribe(
       val => this.comments = val);
+  }
+
+  getUrl(post: Post) {
+    return this.sanitizer.bypassSecurityTrustResourceUrl(post.videos.replace("watch?v=","embed/"));
   }
 
   like(post: Post) {
