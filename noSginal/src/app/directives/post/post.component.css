@@ -50,3 +50,8 @@ hr {
   max-width: 1550px;
   word-break: break-all;
 }
+
+iframe {
+  margin: 30px auto 0 auto;
+  display: block;
+}

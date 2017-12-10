@@ -1,6 +1,6 @@
 <div class="page-body">
   <app-search-user *ngIf="authService.isLoggedIn"></app-search-user>
-  <mat-card *ngFor="let post of posts" class="post-card" *ngIf = "post.visibility">
+  <mat-card *ngFor="let post of posts" class="post-card">
     <mat-card-header>
       <div mat-card-avatar>
         <img mat-card-avatar src ="assets/img/{{post.user.profilepicture}}" class = "profilePicture">

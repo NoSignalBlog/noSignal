@@ -35,12 +35,13 @@
       <mat-card-title class="title">
         {{post.title}}
       </mat-card-title>
-      <mat-card-subtitle (click)="saveUserId(post)" class="subTitle">
+      <mat-card-subtitle class="subTitle">
         by {{post.user.username}}
       </mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
       <p>{{post.text}}</p>
+      <iframe *ngIf = "post.videos" width="560" height="315" [src]="getUrl(post)" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen ng-show="showvideo"></iframe>
       <p id = "likes">Likes: {{post.likes}}</p>
     </mat-card-content>
   </mat-card>
