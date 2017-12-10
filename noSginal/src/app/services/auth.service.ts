@@ -6,11 +6,11 @@ import 'rxjs/Rx';
 import {Post} from "../model/Post";
 import {Observable} from "rxjs/Observable";
 
-
 @Injectable()
 export class AuthService {
 
   user: User;
+  userToModify: User;
   isLoggedIn: boolean = false;
   userid : Number;
   queryUserId: Number;
@@ -62,6 +62,4 @@ export class AuthService {
     return this.http.get(Server.routeTo(Routes.USERS))
       .map(res => res.json())
   }
-
-
 }
