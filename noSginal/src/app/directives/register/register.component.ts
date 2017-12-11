@@ -25,7 +25,8 @@ export class RegisterComponent implements OnInit {
   pictures = [
     {value: 'prof1.jpg', viewValue: 'Prof 1'},
     {value: 'prof2.png', viewValue: 'Prof 2'},
-    {value: 'prof3.png', viewValue: 'Prof 3'}
+    {value: 'prof3.png', viewValue: 'Prof 3'},
+    {value: 'icon.png', viewValue: 'Prof 4'}
   ];
 
   hasError: boolean = false;

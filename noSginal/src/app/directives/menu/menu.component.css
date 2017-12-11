@@ -11,3 +11,16 @@ mat-toolbar {
   flex: 1 1 auto;
 }
 
+.left-side, .right-side {
+  display: flex;
+}
+
+.icon {
+  width: 50px;
+  display: inline;
+}
+
+h1 {
+  display: inline;
+  padding-left: 20px;
+}

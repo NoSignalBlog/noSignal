@@ -79,6 +79,7 @@
       <img mat-card-image *ngIf = "profilepicture.value == pictures[0].value" src = "assets/img/prof1.jpg" class = "profilePicture">
       <img mat-card-image *ngIf = "profilepicture.value == pictures[1].value" image src = "assets/img/prof2.png" class = "profilePicture">
       <img mat-card-image *ngIf = "profilepicture.value == pictures[2].value" src = "assets/img/prof3.png" class = "profilePicture">
+      <img mat-card-image *ngIf = "profilepicture.value == pictures[3].value" src = "assets/img/icon.png" class = "profilePicture">
     </div>
     <button mat-raised-button class="mat-primary" (click)="submit()" [disabled]="!registerForm.valid">Register</button>
 

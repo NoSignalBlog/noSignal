@@ -24,3 +24,11 @@ button {
   flex-direction: column;
   align-items: center;
 }
+
+input {
+  color: wheat;
+}
+
+textarea {
+  color: wheat;
+}
