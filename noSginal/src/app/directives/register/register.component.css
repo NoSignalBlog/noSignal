@@ -37,3 +37,7 @@ iframe {
   margin: auto;
   display: block;
 }
+
+input {
+  color: wheat;
+}
