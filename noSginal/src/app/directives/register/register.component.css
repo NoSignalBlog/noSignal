@@ -22,6 +22,10 @@ mat-error {
   padding: 2%;
 }
 
+img {
+  width: 150px;
+}
+
 .profilePicture {
   height: 150px;
   padding: 30px;
