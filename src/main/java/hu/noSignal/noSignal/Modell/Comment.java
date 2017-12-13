@@ -29,4 +29,7 @@ public class Comment extends BaseEntity {
 
     @Column(nullable = false)
     private String text;
+
+    @Column
+    private String username;
 }

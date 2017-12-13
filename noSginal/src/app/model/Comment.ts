@@ -6,6 +6,7 @@ export class SignalComment {
   postid: Number;
   date: Timestamp<Number>;
   text: string;
+  username: String;
 
   constructor(id?: Number, data?: string, postid?: Number) {
     this.text = data;

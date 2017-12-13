@@ -8,6 +8,7 @@ import {SignalCommentService} from "../../services/comment.service";
 import {SignalComment} from "../../model/Comment";
 import {FormControl, Validators} from "@angular/forms";
 import {DomSanitizer} from "@angular/platform-browser";
+import {User} from "../../model/User";
 
 @Component({
   selector: 'app-post',
@@ -19,7 +20,8 @@ export class PostComponent {
   posts: Array<Post>;
   comments: Array<SignalComment>;
   textCtrl: FormControl = new FormControl('', [Validators.required]);
-  hasError: boolean = false;
+  hasError: boolean = false;ú
+  users: User[];
 
 
   constructor(private authService: AuthService, private postService: PostService, private router: Router,
@@ -28,6 +30,15 @@ export class PostComponent {
       val => this.posts = val);
     this.signalCommentService.getComments().subscribe(
       val => this.comments = val);
+    this.authService.getUsers().subscribe(val => {this.users = val;
+      for ( let comment of this.comments) {
+        for ( let user of this.users ) {
+          if (comment.userid == user.id) {
+            comment.username = user.username;
+          }
+        }
+    }});
+
   }
 
   getUrl(post: Post) {
