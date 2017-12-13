@@ -28,9 +28,9 @@ A NoSignal egy olyan online felület, ami informatikai témájú bejegyzések, k
 
 * Személyes adatok megváltoztatása: a regisztrált felhasználónak lehetősége van a nevének e-mail címének és jelszavának megváltoztatására.  A felhasználónév nem változtatható. 
 
-* Bejegyzés írása / szerkesztése: minden regisztrált felhasználó megteheti, a főoldalon. A bejegyzés a szövegen kívül tartalmazhat linkeket, illetve beágyazott YouTube videókat. A bejegyzés írója a későbbiekben szerkesztheti és törölheti is a bejegyzését. Megadható, hogy a bejegyzést csak a regisztrált felhasználók, vagy bárki láthatja –e (nyilvános)
+* Bejegyzés írása / szerkesztése: minden regisztrált felhasználó megteheti, a főoldalon. A bejegyzés a szövegen kívül tartalmazhat beágyazott YouTube videókat. A bejegyzés írója a későbbiekben szerkesztheti és törölheti is a bejegyzését. Megadható, hogy a bejegyzést csak a regisztrált felhasználók, vagy bárki láthatja –e (nyilvános)
 
-* Bejegyzések böngészése: a főoldalon a regisztrált felhasználók az összes, a nem regisztrált felhasználó csak a nyilvános bejegyzéseket olvashatja. A bejegyzés tetején megjelenik az író felhasználóneve, rákattintva bejön a személyes oldala. A bejegyzések alatt megjelennek a hozzászólások és a kedvelések száma. A hozzászólások mellett olvasható a hozzászólás írójának neve, valamint a profilképe is megjelenik.
+* Bejegyzések böngészése: a főoldalon a regisztrált felhasználók az összes, a nem regisztrált felhasználó csak a nyilvános bejegyzéseket olvashatja. A bejegyzés tetején megjelenik az író felhasználóneve, rákattintva bejön a személyes oldala. A bejegyzések alatt megjelennek a hozzászólások és a kedvelések száma. A hozzászólások mellett olvasható a hozzászólás írójának neve.
 
 * Felhasználó személyes oldala: az adott felhasználó által írt bejegyzések, a láthatóság megegyezik a korábbiakkal. Az oldal tetején a felhasználó neve olvasható, mellette a profilképe, ha van.
 
@@ -40,7 +40,7 @@ A NoSignal egy olyan online felület, ami informatikai témájú bejegyzések, k
 
 * Felhasználó keresése: bejelentkezett felhasználók a főoldal tetején elhelyezkedő keresőmező segítségével a felhasználók neve alapján kereshetnek egymásra. 
 
-* Adminisztrátori funkciók: felhasználók törlése, bejegyzések szerkesztése, törlése, a regisztrált felhasználók adatainak lekérdezése.
+* Adminisztrátori funkciók: bejegyzések szerkesztése, törlése, a regisztrált felhasználók adatainak lekérdezése.
 
 ### [Szerepkörök, jogosultságok](#roles)
 
