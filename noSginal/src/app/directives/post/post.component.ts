@@ -19,8 +19,10 @@ export class PostComponent {
 
   posts: Array<Post>;
   comments: Array<SignalComment>;
+  commentsTmp: Array<SignalComment>;
   textCtrl: FormControl = new FormControl('', [Validators.required]);
-  hasError: boolean = false;ú
+  hasError: boolean = false;
+  ú
   users: User[];
 
 
@@ -29,20 +31,24 @@ export class PostComponent {
     this.postService.getPosts().subscribe(
       val => this.posts = val);
     this.signalCommentService.getComments().subscribe(
-      val => this.comments = val);
-    this.authService.getUsers().subscribe(val => {this.users = val;
-      for ( let comment of this.comments) {
-        for ( let user of this.users ) {
-          if (comment.userid == user.id) {
-            comment.username = user.username;
+      val => {
+        this.comments = val;
+        this.authService.getUsers().subscribe(val => {
+          this.users = val;
+          for (let comment of this.comments) {
+            for (let user of this.users) {
+              if (comment.userid == user.id) {
+                comment.username = user.username;
+              }
+            }
           }
-        }
-    }});
+        })
+      });
 
   }
 
   getUrl(post: Post) {
-    return this.sanitizer.bypassSecurityTrustResourceUrl(post.videos.replace("watch?v=","embed/"));
+    return this.sanitizer.bypassSecurityTrustResourceUrl(post.videos.replace("watch?v=", "embed/"));
   }
 
   like(post: Post) {
@@ -57,7 +63,7 @@ export class PostComponent {
     this.router.navigate(['/editpost']);
   }
 
-  checkUser(post: Post) : boolean {
+  checkUser(post: Post): boolean {
     return (this.authService.user.username == post.user.username || this.authService.user.role == "ADMIN");
   }
 
@@ -68,10 +74,26 @@ export class PostComponent {
 
   submit(id: Number) {
     console.log(id);
-    this.signalCommentService.create(new SignalComment(this.authService.userid.valueOf(), this.textCtrl.value, id ))
+    this.signalCommentService.create(new SignalComment(this.authService.userid.valueOf(), this.textCtrl.value, id))
       .subscribe(
-        res => this.router.navigate(['/posts']),
+        res => this.reload(),
         err => this.hasError = true)
   }
+
+  private reload() {
+    this.signalCommentService.getComments().subscribe(
+      val => {
+        this.commentsTmp = val;
+        for (let comment of this.commentsTmp) {
+          for (let user of this.users) {
+            if (comment.userid == user.id) {
+              comment.username = user.username;
+            }
+          }
+        }
+        this.comments = this.commentsTmp;
+      });
+  }
+
 }
 
