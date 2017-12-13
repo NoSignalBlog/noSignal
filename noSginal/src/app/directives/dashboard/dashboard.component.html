@@ -1,0 +1,34 @@
+<div class = "page-body">
+  <mat-table #table [dataSource]="userDataSource">
+
+    <ng-container matColumnDef="username">
+      <mat-header-cell *matHeaderCellDef>User name</mat-header-cell>
+      <mat-cell *matCellDef="let element"  class = "username"> {{element.username}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="firstname">
+      <mat-header-cell *matHeaderCellDef>First name</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.firstname}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="lastname">
+      <mat-header-cell *matHeaderCellDef>Last name</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.lastname}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <mat-header-cell *matHeaderCellDef>E-mail</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.email}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="edit">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button mat-button (click)="saveUserId(element.id)">View</button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>

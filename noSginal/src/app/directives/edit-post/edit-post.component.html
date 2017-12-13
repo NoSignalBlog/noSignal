@@ -1,0 +1,48 @@
+<div class="page-body" id="edit-post-page">
+
+  <form [formGroup]="editPostForm" class="edit-post-form" novalidate>
+    <div class="form-control">
+      <mat-form-field>
+        <input matInput placeholder="Post's title ..." formControlName="title">
+        <mat-error *ngIf="title.hasError('required')">
+          Title is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form-control">
+      <mat-form-field>
+        <textarea matInput placeholder="Your post ..." formControlName="text" matTextareaAutosize matAutosizeMinRows="2"
+                  matAutosizeMaxRows="5">
+        <mat-error *ngIf="text.hasError('required')">
+          Some text is <strong>required</strong>
+        </mat-error>
+        </textarea>
+      </mat-form-field>
+    </div>
+
+    <div class="form-control">
+      <mat-form-field>
+        <input matInput placeholder="YouTube link ..." formControlName="videos">
+      </mat-form-field>
+    </div>
+
+    <mat-slide-toggle class="example-margin"
+                      formControlName="checked">
+      Let it Public!
+    </mat-slide-toggle>
+
+    <mat-error *ngIf="this.hasError" id="postError">
+      <strong>Invalid post data!</strong>
+    </mat-error>
+
+    <button mat-raised-button class="mat-primary" (click)="submit()" [disabled]="!editPostForm.valid">Save</button>
+    <button mat-raised-button class="mat-primary" (click)="delete()">Delete</button>
+
+    <div class ="deleteVerify" *ngIf="selectForDelete" [ngStyle]="{'transition.s':3}">
+      <strong>Are you sure you want to delete?</strong><br>
+      <button mat-raised-button class="mat-primary" (click)="deletePost()">Yes</button>
+      <button mat-raised-button class="mat-primary" (click)="delete()">No</button>
+    </div>
+  </form>
+</div>

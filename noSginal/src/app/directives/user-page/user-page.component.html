@@ -1,0 +1,48 @@
+<div class="page-body" *ngFor="let user of users">
+  <mat-card  class="user-card" *ngIf="authService.queryUserId == user.id">
+    <mat-card-header>
+      <div mat-card-avatar>
+        <img mat-card-avatar src ="assets/img/{{user.profilepicture}}" class = "profilePicture">
+      </div>
+      <mat-card-title class="username">
+        {{user.username}}
+      </mat-card-title>
+      <mat-card-subtitle>
+
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <br>
+      <p>{{user.firstname}} {{user.lastname}}</p>
+      <p>{{user.email}}</p>
+      <!--<p id = "likes">Likes: {{post.likes}}</p>-->
+    </mat-card-content>
+    <!--<mat-card-actions *ngIf = "authService.isLoggedIn">-->
+      <!--<button mat-button (click)="like(post)">Like</button>-->
+      <!--<button *ngIf="checkUser(post)" mat-button (click)="edit(post)">Edit</button>-->
+    <!--</mat-card-actions>-->
+  </mat-card>
+</div>
+
+
+
+<div class="page-body" *ngFor="let post of posts">
+  <mat-card  class="post-card" *ngIf="authService.queryUserId == post.userid">
+    <mat-card-header>
+      <div mat-card-avatar>
+        <img mat-card-avatar src ="assets/img/{{post.user.profilepicture}}" class = "profilePicture">
+      </div>
+      <mat-card-title class="title">
+        {{post.title}}
+      </mat-card-title>
+      <mat-card-subtitle class="subTitle">
+        by {{post.user.username}}
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="context">
+      <p>{{post.text}}</p>
+      <iframe *ngIf = "post.videos" width="560" height="315" [src]="getUrl(post)" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen ng-show="showvideo"></iframe>
+      <p id = "likes">Likes: {{post.likes}}</p>
+    </mat-card-content>
+  </mat-card>
+</div>

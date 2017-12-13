@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/purple-green.css';
+
+@import './app/directives/edit-post/edit-post.component.css';
+@import './app/directives/error/error.component.css';
+@import './app/directives/like-button/like-button.component.css';
+@import './app/directives/login-component/login-component.component.css';
+@import './app/directives/menu/menu.component.css';
+@import './app/directives/new-post/new-post.component.css';
+@import './app/directives/password-change/password-change.component.css';
+@import './app/directives/post/post.component.css';
+/*@import './app/directives/register/register.component.css';*/
+@import './app/directives/search-user/search-user.component.css';
+@import './app/directives/user-page/user-page.component.css';
+/*@import './app/directives/user-settings/user-settings.component.css';*/
+@import './app/directives/welcome/welcome.component.css';
+@import './app/app.component.css';
+
+
+
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  background-color: #303030;
+}

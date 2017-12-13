@@ -1,0 +1,23 @@
+<mat-toolbar id="top-menu" color="primary">
+  <div class="left-side">
+    <img class = "icon" mat-card-avatar src ="assets/img/icon.png">
+    <h1 class="mat-h1">No Signal</h1>
+  </div>
+
+  <div class="center">
+    <a mat-button *ngFor="let menu of menus" [routerLink]="menu.link" routerLinkActive="active">{{menu.title}}</a>
+    <!div *ngIf="authService.isLoggedIn" class="authorized">
+      <!button mat-button (click)="logout()"><!/button>
+    <!/div>
+    <a *ngIf="authService.isLoggedIn" mat-button (click)="logout()">Logout</a>
+  </div>
+
+  <div class="right-side">
+    <div *ngIf="!authService.isLoggedIn" class="unauthorized">
+      <a mat-button routerLink="/login" routerLinkActive="active">Login</a>/
+      <a mat-button routerLink="/register" routerLinkActive="active">Register</a>
+    </div>
+    <app-welcome></app-welcome>
+
+  </div>
+</mat-toolbar>

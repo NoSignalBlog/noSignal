@@ -1,0 +1,57 @@
+.post-card {
+  margin: 0 auto 5% auto;
+  width: 90%;
+  padding: 3%;
+}
+
+.title {
+  font-size: larger;
+}
+
+.subTitle:hover {
+  color: #8B008B;
+  transition: 1s;
+}
+
+.subTitle {
+  transition: 1s;
+  text-decoration: underline;
+}
+
+#likes {
+  padding-top: 3%;
+  font-style: italic;
+}
+
+.profilePicture {
+  margin-left: 2%;
+  display: block;
+}
+
+hr {
+  margin-bottom: 1%;
+  color: darkblue;
+}
+
+
+#new-comment-page {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.new-comment-form {
+  min-width: 150px;
+  max-width: 1920px;
+  width: 80%;
+  margin-left: 1%;
+}
+
+.content {
+  max-width: 1550px;
+  word-break: break-all;
+}
+
+iframe {
+  margin: 30px auto 0 auto;
+  display: block;
+}

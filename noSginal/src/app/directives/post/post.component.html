@@ -1,0 +1,46 @@
+<div class="page-body">
+  <app-search-user *ngIf="authService.isLoggedIn"></app-search-user>
+  <mat-card *ngFor="let post of posts" class="post-card">
+    <mat-card-header>
+      <div mat-card-avatar>
+        <img mat-card-avatar src ="assets/img/{{post.user.profilepicture}}" class = "profilePicture">
+      </div>
+      <mat-card-title class="title">
+        {{post.title}}
+      </mat-card-title>
+      <mat-card-subtitle (click)="saveUserId(post)" class="subTitle">
+        by {{post.user.username}}
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="content">
+      <p>{{post.text}}</p>
+      <iframe *ngIf = "post.videos" width="560" height="315" [src]="getUrl(post)" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen ng-show="showvideo"></iframe>
+      <p id = "likes">Likes: {{post.likes}}</p>
+    </mat-card-content>
+    <mat-card-actions *ngIf = "authService.isLoggedIn">
+      <button mat-button (click)="like(post)">Like</button>
+      <button *ngIf="checkUser(post)" mat-button (click)="edit(post)">Edit</button>
+    </mat-card-actions>
+    <mat-card-footer>
+      <hr>
+      <form class="new-commment-form" novalidate *ngIf="authService.isLoggedIn">
+        <mat-form-field class = "new-comment-form">
+          <input matInput placeholder="Comment..." [formControl]="textCtrl">
+        </mat-form-field>
+        <button mat-button class="mat-primary" (click)="submit(post.id)" [disabled]="!textCtrl.valid">Send</button>
+      </form>
+      <div class="page-body" *ngFor="let comment of comments">
+        <mat-card  class="comment-card" *ngIf="comment.postid == post.id">
+          <mat-card-header>
+            <mat-card-title class="title">
+              {{comment.username}}
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p>{{comment.text}}</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </mat-card-footer>
+  </mat-card>
+</div>

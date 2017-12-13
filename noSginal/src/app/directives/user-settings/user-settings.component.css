@@ -1,0 +1,46 @@
+#settings-page {
+  margin: 0 auto;
+  width: 50%;
+}
+
+.settings-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#settingsError {
+  padding: 20px;
+}
+
+.form-control {
+  margin-bottom: 3%;
+}
+
+mat-error {
+  padding: 2%;
+}
+
+button {
+  margin-top: 1%;
+}
+
+img {
+  width: 150px;
+}
+
+.profilePicture {
+  height: 150px;
+  padding: 30px;
+}
+
+.pictures {
+  margin: auto;
+  flex-direction: row;
+  align-items: center;
+}
+
+input {
+  color: wheat;
+}
