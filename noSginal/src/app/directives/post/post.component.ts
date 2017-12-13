@@ -22,7 +22,6 @@ export class PostComponent {
   commentsTmp: Array<SignalComment>;
   textCtrl: FormControl = new FormControl('', [Validators.required]);
   hasError: boolean = false;
-  ú
   users: User[];
 
 
@@ -38,6 +37,8 @@ export class PostComponent {
           for (let comment of this.comments) {
             for (let user of this.users) {
               if (comment.userid == user.id) {
+                console.log(comment.text+" "+user.id);
+
                 comment.username = user.username;
               }
             }
