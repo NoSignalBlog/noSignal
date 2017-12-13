@@ -39,4 +39,8 @@ iframe {
   display: block;
 }
 
+.content {
+  max-width: 1550px;
+  word-break: break-all;
+}
 

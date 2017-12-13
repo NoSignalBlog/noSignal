@@ -8,9 +8,10 @@ export class SignalComment {
   text: string;
   username: String;
 
-  constructor(id?: Number, data?: string, postid?: Number) {
+  constructor(userid?: Number, data?: string, postid?: Number, id?: Number,) {
     this.text = data;
     this.id = id || null;
     this.postid = postid;
+    this.userid = userid || null;
   }
 }
