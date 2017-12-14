@@ -47,7 +47,6 @@ public class Post extends BaseEntity {
     @Column
     private String links;
 
-
     @JsonIgnore
     @JoinColumn(name = "comment", referencedColumnName = "id")
     @ManyToMany(targetEntity = Comment.class)
