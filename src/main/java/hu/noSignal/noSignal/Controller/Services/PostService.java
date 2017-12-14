@@ -14,6 +14,7 @@ import org.springframework.web.context.annotation.SessionScope;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Optional;
 
 @Service
 @SessionScope
@@ -31,6 +32,9 @@ public class PostService {
             throw new PostException();
         }
         post.setDate(new Timestamp(System.currentTimeMillis()));
+        Optional<User> user = userRepository.findById(post.getId());
+        user.get().getPosts().add(post);
+        userRepository.save(user.get());
         System.out.println(post);
         postRepository.save(post);
         return post;

@@ -1,9 +1,7 @@
 package hu.noSignal.noSignal.Modell;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -42,9 +40,12 @@ public class User extends BaseEntity {
     @Column()
     private String profilepicture;
 
-    //@JoinColumn
-    //@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, targetEntity = Post.class)
-    //private List<Post> posts;
+    @Getter
+    @JsonIgnore
+    @JoinColumn
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, targetEntity = Post.class)
+    private List<Post> posts;
+
 
     public enum Role {
         GUEST, USER, ADMIN
