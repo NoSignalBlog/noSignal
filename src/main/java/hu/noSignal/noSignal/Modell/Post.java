@@ -1,5 +1,6 @@
 package hu.noSignal.noSignal.Modell;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -7,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.List;
 
 @Entity
 @Data
@@ -44,4 +46,11 @@ public class Post extends BaseEntity {
 
     @Column
     private String links;
+
+
+    @JsonIgnore
+    @JoinColumn(name = "comment", referencedColumnName = "id")
+    @ManyToMany(targetEntity = Comment.class)
+    private List<Comment> comments;
+
 }

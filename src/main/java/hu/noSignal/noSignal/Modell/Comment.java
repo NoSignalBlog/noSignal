@@ -1,14 +1,14 @@
 package hu.noSignal.noSignal.Modell;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.List;
 
 @Entity
 @Data
@@ -32,4 +32,9 @@ public class Comment extends BaseEntity {
 
     @Column
     private String username;
+
+    @JsonIgnore
+    @JoinColumn(name = "post", referencedColumnName = "id")
+    @ManyToMany(targetEntity = Post.class)
+    private List<Post> posts;
 }
